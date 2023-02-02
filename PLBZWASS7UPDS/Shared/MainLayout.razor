@@ -1,0 +1,199 @@
+﻿@inherits LayoutComponentBase
+@inject IJSRuntime js
+@inject NavigationManager navigationManager
+@inject Auth.RenovadorToken renovadorToken;
+@inject Auth.ILoginService loginService;
+
+<PageTitle>BZCORE7WASS</PageTitle>
+
+@*<AuthorizeView>*@
+    <Authorized>
+        <div class="wrapper @classDark">
+            <!-- Sidebar  -->
+            <nav id="sidebar active" class="@sideBar">
+                <div id="sidebar">
+                    <div class="pt-3">
+                        <LoginDisplay />
+                    </div>
+                    <MenuNav></MenuNav>
+                    <div class="text-center footer-section">
+                        <div class="full-width">
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <button type="button" class="btn btn-outline-primary btn-@modolight" @onclick="cambiarModolight">
+                                    <i class="bi bi-brightness-high"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-primary btn-@themeBtn" @onclick="cambiarModoDark">
+                                    <i class="bi bi-moon-fill"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <mat-divider></mat-divider>
+                        @*<img src="https://portal.upds.edu.bo/index/images/isologo.png" class="isologo">*@
+                        <div class="detail-version">
+                            <p class="mb-0">&copy; 2022 - V1.3 DT</p>
+                            <p>UPDS Copyright</p>
+                        </div>
+                        <button class="btn btn-danger btn-logout " @onclick="logout">
+                            Cerrar sesion
+                            <i class="bi bi-box-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Page Content  -->
+            <div id="content" class="@content">
+                <label type="button" for="check" class="label">
+                    <input type="checkbox" id="check" checked="@checkedV" @onclick="ToggleNavMenu" />
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            <div class="container  @contenido mw-100 py-5 pr-4" id="contenido" style="padding-left:3.5rem" @onclick="ToggleNavMenuContent">
+                    @Body
+                </div>
+            </div>
+        </div>
+
+    </Authorized>
+    <NotAuthorized>
+        <NoAutorizado></NoAutorizado>
+    </NotAuthorized>
+@*</AuthorizeView>*@
+
+@code {
+    public bool modoDark = true;
+    private string? classDark => modoDark ? "theme-dark" : null;
+    private string? themeBtn => modoDark ? "primary" : null;
+    private string? modolight => themeBtn != "primary" ? "primary" : null;
+
+    private bool collapseNavMenu = false;
+
+
+    private bool? checkedV;
+    private string? sideBar => collapseNavMenu ? "active" : null;
+
+    private string? content => collapseNavMenu ? "active" : null;
+    private string? contenido => collapseNavMenu ? "full-width" : null;
+    private string? navBar => collapseNavMenu ? "full-width" : null;
+    private string? collapse => collapseNavMenu ? "in" : null;
+
+    [CascadingParameter]
+    public Task<AuthenticationState>? authenticationStateTask { get; set; }
+
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+        if (collapseNavMenu)
+            checkedV = true;
+        else
+            checkedV = false;
+
+    }
+    private void ToggleNavMenuContent()
+    {
+
+        if (collapseNavMenu)
+        {
+            checkedV = false;
+            collapseNavMenu = false;
+        }
+    }
+
+    private void logout()
+    {
+        navigationManager.NavigateTo("Logout");
+    }
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await js.InicializarStorageEvento(DotNetObjectReference.Create(this));
+        renovadorToken.Iniciar();
+        await js.InicializarTimerInactivo(DotNetObjectReference.Create(this));
+
+        var authState = await authenticationStateTask!;
+        var user = authState.User;
+        if (user.Identity!.IsAuthenticated)
+        {
+            var ruta = navigationManager.ObtenerUrlSinParametro("token");
+            navigationManager.NavigateTo(ruta);
+        }
+
+
+        await asignarThema();
+    }
+
+    [JSInvokable]
+    public async Task VerificarLogueo()
+    {
+        var authState = await authenticationStateTask!;
+        var user = authState.User;
+        if (user.Identity!.IsAuthenticated)
+        {
+
+            var token = await js.GetFromLocalStorage("TOKENKEY");
+
+            if (string.IsNullOrEmpty(token))
+            {
+                navigationManager.NavigateTo($"/login", true);
+            }
+        }
+    }
+
+    [JSInvokable]
+    public async Task Logout()
+    {
+        var authState = await authenticationStateTask!;
+        var user = authState.User;
+        bool existetoken = await loginService.existeToken();
+        if (user.Identity!.IsAuthenticated && existetoken)
+        {
+            navigationManager.NavigateTo("logout", true);
+        }
+    }
+    [JSInvokable]
+    public async Task cambiarModo()
+    {
+        modoDark = !modoDark;
+        if (modoDark)
+        {
+            _ = js.SetInLocalStorage("theme", "dark");
+        }
+        else
+        {
+            _ = js.SetInLocalStorage("theme", "ligth");
+        }
+    }
+
+    [JSInvokable]
+    public async Task cambiarModolight()
+    {
+        modoDark = false;
+        _ = js.SetInLocalStorage("theme", "ligth");
+    }
+
+    [JSInvokable]
+    public async Task cambiarModoDark()
+    {
+        modoDark = true;
+        _ = js.SetInLocalStorage("theme", "dark");
+
+    }
+
+    [JSInvokable]
+    public async Task asignarThema()
+    {
+        var modo = await js.GetFromLocalStorage("theme");
+        if (modo == "dark")
+        {
+            modoDark = true;
+        }
+        else
+        {
+            modoDark = false;
+        }
+    }
+}

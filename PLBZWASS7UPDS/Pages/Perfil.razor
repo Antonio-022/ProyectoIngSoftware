@@ -1,0 +1,357 @@
+﻿@page "/perfil"
+<PageTitle>Perfil</PageTitle>
+
+<div class="container-perfil p-3">
+    <h3 class="text-center">Actualizacion de datos</h3>
+    <EditForm Model="exampleModel" OnValidSubmit="OnValidSubmit">
+        <DataAnnotationsValidator />
+        <div class="row d-flex flex-sm-column flex-xl-row flex-column ">
+            <div class="col mr-3 pr-sm-0 pr-md-3 pr-0">
+                <div class="card card-perfil card-perfil-content row p-4">
+                    <div class="perfil-foto" style="background-image: url('https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=');" alt="Foto"></div>
+                    <div style=" text-align:center">
+                        <h4>Manfredo Agreda Franco</h4>
+                        <h6>7644412</h6>
+                        <h6>Primero de Secundaria Azul - 2023</h6> 
+                    </div>
+                </div>
+                @*inicio acerca estudiante*@
+                <div class="card card-perfil row p-3 mt-3 card-perfil-content d-flex flex-sm-column flex-xl-row flex-column ">
+                    <h6 class="text">Acerca del Estudiante</h6>
+
+                    <div class="row  d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col  pr-0">
+                            <div class="form-floating mb-3">
+                                <InputText type="text" class="form-control card-perfil" placeholder=" " id="floatingInput" @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Carnet de Identidad</label>
+                            </div>
+                        </div>
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputSelect type="text" class="form-control" id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder="Idioma">
+                                    <option value="0">Femenino</option>
+
+                                </InputSelect>
+                                <label for="floatingInput">Genero</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row  d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputDate id="floatingInput" class="form-control card-perfil" @bind-Value="exampleModel.fecha"></InputDate>
+                                <label for="floatingInput">Fecha de nacimiento</label>
+                            </div>
+                        </div>
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Lugar de Nacimiento</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputTextArea id="floatingInput" placeholder=" " class="form-control card-perfil" @bind-Value="exampleModel.cadena"></InputTextArea>
+                                <label for="floatingInput">alergias</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputTextArea id="floatingInput" placeholder=" " class="form-control card-perfil" @bind-Value="exampleModel.cadena"></InputTextArea>
+                                <label for="floatingInput">Habilidades y Destrezas</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                        <div class="form-floating mb-3 ">
+                            <InputSelect type="text" class="form-control" id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder="Idioma">
+                                <option value="0">Con quien vive?</option>
+
+                            </InputSelect>
+                            <label for="floatingInput">Con quien vive?</label>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Email</label>
+                            </div>
+                        </div>
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Contraseña</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @*inicio Certificado de nacimiento*@
+                <div class="card card-perfil row p-3 mt-3 card-perfil-content d-flex flex-sm-column flex-xl-row flex-colum ">
+                    <h6 class="text">Certificado de Nacimiento</h6>
+
+                    <div class="row  d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3">
+                                <InputText type="text" class="form-control card-perfil" placeholder=" " id="floatingInput" @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Nro. Oficilia</label>
+                            </div>
+                        </div>
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3">
+                                <InputText type="text" class="form-control card-perfil" placeholder=" " id="floatingInput" @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Nro. Libro</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row  d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3">
+                                <InputText type="text" class="form-control card-perfil" placeholder=" " id="floatingInput" @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Nro. Folio</label>
+                            </div>
+                        </div>
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3">
+                                <InputText type="text" class="form-control card-perfil" placeholder=" " id="floatingInput" @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Nro. Partida</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*inicio Certifacdo de nacimiento*@
+
+                @*inicio Certificado de nacimiento*@
+                <div class="card card-perfil p-3 row mb-3 mt-3 card-perfil-content d-flex flex-sm-column flex-xl-row flex-colum ">
+                    <h6 class="text">Seguro Médico</h6>
+
+                    <div class="row  d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3">
+                                <InputText type="text" class="form-control card-perfil" placeholder=" " id="floatingInput" @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Seguro Médico</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row  d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3">
+                                <InputText type="text" class="form-control card-perfil" placeholder=" " id="floatingInput" @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Centro de Atencion Médica 1</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row  d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3">
+                                <InputText type="text" class="form-control card-perfil" placeholder=" " id="floatingInput" @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Centro de Atencion Médica 1</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*inicio Certifacdo de nacimiento*@
+
+            </div>
+            @*fin acerca estudiante*@
+
+            @*inicio Datos Familiares*@
+            <div class="col mr-3 pr-sm-0 pr-md-3 pr-0">
+
+                @*inicio Datos de la Papa*@
+                <div class="card card-perfil row p-3  card-perfil-content d-flex flex-sm-column flex-xl-row flex-colum ">
+                    <h6 class="text">Datos del Papá</h6>
+                    <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Carnet de Identidad</label>
+                            </div>
+                        </div>
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Nombre Completo</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Profesión</label>
+                            </div>
+                        </div>
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Lugar de Trabajo</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputDate id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.fecha"></InputDate>
+                                <label for="floatingInput">Fecha de nacimiento</label>
+                            </div>
+                        </div>
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Celular</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Religión</label>
+                            </div>
+                        </div>
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Email</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputTextArea id="floatingInput" placeholder=" " class="form-control card-perfil" @bind-Value="exampleModel.cadena"></InputTextArea>
+                                <label for="floatingInput">Dirección Domicilio</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @*fin Datos de la Mamá*@
+
+
+                @*inicio Datos de la Mamá*@
+                <div class="card card-perfil row p-3  card-perfil-content d-flex flex-sm-column flex-xl-row flex-colum ">
+                    <h6 class="text">Datos de la Mamá</h6>
+                    <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Carnet de Identidad</label>
+                            </div>
+                        </div>
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Nombre Completo</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Profesión</label>
+                            </div>
+                        </div>
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Lugar de Trabajo</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputDate id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.fecha"></InputDate>
+                                <label for="floatingInput">Fecha de nacimiento</label>
+                            </div>
+                        </div>
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Celular</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Religión</label>
+                            </div>
+                        </div>
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" class="form-control card-perfil" placeholder=" " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Email</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputTextArea id="floatingInput" placeholder=" " class="form-control card-perfil" @bind-Value="exampleModel.cadena"></InputTextArea>
+                                <label for="floatingInput">Dirección Domicilio</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @*fin Datos de la Mamá*@
+               
+                @*inicio Familiar de Referencia*@
+                <div class="card card-perfil row p-3 mt-3 mb-3 card-perfil-content d-flex flex-sm-column flex-xl-row flex-colum ">
+                    <h6 class="text">Familiar de Referencia</h6>
+
+                    <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" placeholder=" " class="form-control card-perfil" @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Nombre Completo</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" placeholder=" " class="form-control card-perfil" @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Celular</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                        <div class="col pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" placeholder=" " class="form-control card-perfil" @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Teléfono Domicilio</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*inicio Familiar de Referencia*@
+        </div>
+        <button class="btn btn-primary" type="submit" style="width: 100%;padding:0.4rem;">Actualizar Datos</button>
+    </EditForm>
+</div>
+
+
+
+
+@code {
+    private ExampleDTO exampleModel = new();
+    public void OnValidSubmit()
+    {
+        Console.WriteLine(exampleModel.fecha);
+    }
+}

@@ -1,0 +1,25 @@
+﻿@page "/curriculumPlanning"
+<PageTitle>Planificación curricular</PageTitle>
+
+<h3 class="text-center">Planificación Curricular </h3>
+
+<div class="planning-container">
+    <div class="card mt-3">
+        <h6 class="text-center my-3">Elige una asignatura para visualizar su planificación</h6>
+        <div class="download-item">
+            @for (int i = 0; i < 5; i++)
+            {
+                <div class="items w-auto d-flex bd-highlight flex-wrap justify-content-sm-center justify-content-md-start justify-content-center p-2 mb-3">
+                    <div class="p-2 flex-fill d-flex align-items-center">Lenguaje @(i + 1)</div>
+                    <div class="p-2  bd-highlight">
+                        <button class="btn btn-primary btn-sm">Seleccionar ></button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+
+}

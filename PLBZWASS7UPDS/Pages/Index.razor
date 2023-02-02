@@ -1,0 +1,62 @@
+﻿@page "/"
+@inject IRepositorio repositorio
+@inject NavigationManager navigationManager
+<PageTitle>SAADS</PageTitle>
+<h2 class="text text-center">Menú</h2>
+<div class="container-card">
+
+    <ListadoGenerico Listado="interfaces">
+        <HayRegistros Context="item">
+
+            <div class="card card-menu" @onclick="@(()=> irPagina(item))">
+                <div class="card-body">
+                    <h5 class="card-title text-center" style="font-size: 2.25rem;">
+                        <i class="@item.Icono"></i>
+                    </h5>
+                    <p class="card-text text-center">@item.Titulo</p>
+                </div>
+            </div>
+
+        </HayRegistros>
+    </ListadoGenerico>
+
+
+
+
+</div>
+
+@code {
+
+    List<InterfaceDTO>? interfaces = new List<InterfaceDTO>()
+    {
+    
+       new InterfaceDTO { Titulo = "Perfil", Ubicacion = "perfil", Icono = "bi bi-person-lines-fill" },
+       new InterfaceDTO { Titulo = "Estatutos y Reglamentos", Ubicacion = "downloadRule", Icono = "bi bi-journal-bookmark-fill" },
+       new InterfaceDTO { Titulo = "Solicitud de Licencia", Ubicacion = "licences", Icono = "bi bi-file-medical-fill" },
+       new InterfaceDTO { Titulo = "Lista de Utiles Escolares", Ubicacion = "listUtilSchool", Icono = "bi bi-list-task" },
+       new InterfaceDTO { Titulo = "Horario de Clases", Ubicacion = "classSchedule", Icono = "bi bi-alarm-fill" },
+       new InterfaceDTO { Titulo = "Citaciones", Ubicacion = "citations", Icono = "bi bi-send-check-fill" },
+       new InterfaceDTO { Titulo = "Planificación curricular", Ubicacion = "curriculumPlanning", Icono = "bi bi-file-ruled-fill" },
+       
+    };
+    protected override async Task OnInitializedAsync()
+    {
+        //repositorio.AsignarUrlBase(Endpoint.auth);
+        //var resp = await repositorio.Get<List<InterfaceDTO>>("Accesos/Interfaces/32000");
+        //if (!resp.Error)
+        //{
+        //    interfaces = resp.Response;
+        //}
+        //else
+        //{
+        //    interfaces = null;
+        //}
+    }
+
+    private void irPagina(InterfaceDTO item)
+    {
+        navigationManager.NavigateTo(item.Ubicacion);
+    }
+}
+
+

@@ -1,0 +1,198 @@
+﻿@page "/example"
+
+
+@inject IMensajeToastr MensajeToastr
+
+<PageTitle>Index</PageTitle>
+
+<div>
+    <h2>Bootstrap 5</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <div class="line"></div>
+    <div class="my-5">
+        <h2>Ejemplos</h2>
+        <div class="mb-3 mt-3">
+            <h3>Modal</h3>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" @onclick="abrirModal">
+                Launch demo modal
+            </button>
+        </div>
+        <div class="mb-3">
+            <h3>Buttons</h3>
+            <button type="button" class="btn btn-primary">Primary</button>
+            <button type="button" class="btn btn-secondary">Secondary</button>
+            <button type="button" class="btn btn-success">Success</button>
+            <button type="button" class="btn btn-danger">Danger</button>
+            <button type="button" class="btn btn-warning">Warning</button>
+            <button type="button" class="btn btn-info">Info</button>
+            <button type="button" class="btn btn-light">Light</button>
+            <button type="button" class="btn btn-dark">Dark</button>
+
+            <button type="button" class="btn btn-link">Link</button>
+        </div>
+        <div class="mb-3">
+            <h3>Tarjeta</h3>
+            <div class="card" style="width: 15rem;">
+                <img src="source/images/isologo.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            @*            <div class="text-center " aria-hidden="true" tabindex="-1">
+            <div class="spinner-border " role="status" >
+            <span class="visually-hidden">Loading...</span>
+            </div>
+            </div>*@
+
+            <div class="card p-3 card-form">
+                <h3>Formulario</h3>
+                <h5>Label flotante (EPECTACULAR)</h5>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Joaquin G...">
+                            <label for="floatingInput">Nombre completo</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                            <label for="floatingTextarea">Comments</label>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <label for="floatingSelect">Works with selects</label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <label for="floatingSelect">Works with selects</label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <label for="floatingSelect">Works with selects</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <h3>Alerta</h3>
+                <button class="btn btn-success" @onclick="successAlert">Success</button>
+                <button class="btn btn-danger" @onclick="dangerAlert">Danger</button>
+                <button class="btn btn-info" @onclick="infoAlert">Info</button>
+                <button class="btn btn-warning" @onclick="warningAlert">Warning</button>
+                <p><a href="https://codeseven.github.io/toastr/" target="_black">Ver documentacion  aqui</a></p>
+            </div>
+        </div>
+
+    </div>
+    <button class="btn btn-primary" @onclick="load">test spinner</button>
+    <!-- Modal -->
+    <Modal @ref="modal" id="formulario">
+
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary" @onclick="load">Save changes </button>
+        </div>
+        
+    </Modal>
+   @* <div class="modal fade" id="formulario" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+               
+            </div>
+        </div>
+
+    </div>*@
+    <svg class="loading-progress">
+        <circle r="40%" cx="50%" cy="50%" />
+        <circle r="40%" cx="50%" cy="50%" />
+    </svg>
+
+    <Spinner @ref="spinner" id="formulario"></Spinner>
+
+</div>
+
+
+@code {
+    Spinner? spinner;
+    Modal? modal;
+
+
+    private async Task abrirModal()
+    {
+
+        await modal!.AbrirModal();
+    }
+    private void successAlert()
+    {
+        MensajeToastr.MostrarMensajeExitosoWithTitle("Mensaje Alerta Toastr Success", "Exitoso");
+    }
+    private void dangerAlert()
+    {
+        MensajeToastr.MostrarMensajeErrorWithTitle("Mensaje Alerta Toastr Error", "Error");
+    }
+    private void infoAlert()
+    {
+        MensajeToastr.MostrarMensajeInfoWithTitle("Mensaje Alerta Toastr Info", "Informacion");
+    }
+    private void warningAlert()
+    {
+        MensajeToastr.MostrarMensajeWarningWithTitle("Mensaje Alerta Toastr Warning", "Advertencia");
+    }
+    private async Task load()
+    {
+        await spinner!.mostrarSpinner();
+        await Task.Delay(3000);
+        await spinner!.ocultarSpinner();
+
+    }
+
+}
+
+

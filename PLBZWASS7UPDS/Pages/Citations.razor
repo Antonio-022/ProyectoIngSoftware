@@ -1,0 +1,56 @@
+﻿@page "/citations"
+<PageTitle>Citaciónes</PageTitle>
+
+<h3 class="text-center">Citaciónes Alumno</h3>
+
+<div class="container-citaciónes mt-3">
+    
+    <div class="table-responsive-xxl" style="border-radius:10px">
+        <table class="card-perfil table" style="width: 75rem; border-top: 3px solid #729eff !important; ">
+            <thead>
+                <tr>
+                    <th scope="col" class="border-bottom-0 border-top-0">#</th>
+                    <th scope="col" class="border-bottom-0 border-top-0">Materia</th>
+                    <th scope="col" class="border-bottom-0 border-top-0">Profesor</th>
+                    <th scope="col" class="border-bottom-0 border-top-0">Fecha Citación</th>
+                    <th scope="col" class="border-bottom-0 border-top-0">Periodo Acad.</th>
+                    <th scope="col" class="border-bottom-0 border-top-0">Estado</th>
+                    <th scope="col" class="border-bottom-0 border-top-0">Detalle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td> MATEMATICAS</td>
+                    <td>ROBERTO CESPEDES</td>
+                    <td>28-06-2022</td>
+                    <td>1° TRIMESTRE</td>
+                    <td>
+                        <LabelsStatus tipo="1" txt="realizada"></LabelsStatus>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary btn-sm"> ver detalle ></button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">1</th>
+                    <td> MATEMATICAS</td>
+                    <td>ROBERTO CESPEDES</td>
+                    <td>28-06-2022</td>
+                    <td>1° TRIMESTRE</td>
+                    <td>
+                        <LabelsStatus tipo="0" txt="no realizada"></LabelsStatus>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary btn-sm"> ver detalle ></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+@code {
+
+}
