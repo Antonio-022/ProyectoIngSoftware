@@ -1,0 +1,124 @@
+﻿@page "/formpostulation"
+
+<PageTitle>Formulario Postulation</PageTitle>
+
+<h3 class="text-center mb-3">Formulario Postulation</h3>
+
+
+
+
+
+<div class="mr-3 pr-sm-0 pr-md-3 pr-0">
+        <EditForm Model="exampleModel" OnValidSubmit="OnValidSubmit">
+            <div class="card card-perfil card-perfil-content row p-4 mb-3">
+            <div>
+                <h6 class="mb-3 text">Datos Personales</h6>
+
+            </div>
+
+
+            <div class="row d-flex flex-sm-column flex-xl-row-reverse flex-column pr-0">
+                <div class=" col-sm col-xl-2 col m-auto pr-0 mb-3">
+                    <div class="d-flex content-foto">
+                        <div class="perfil-foto-post " style="background-image: url('https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=');" alt="Foto"></div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="row pr-0">
+                        <div class=" pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Apellidos </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pr-0">
+                        <div class=" pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Nombres </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                <div class="col pr-0">
+                    <div class="form-floating mb-3 ">
+                        <InputDate id="floatingInput" class="form-control form-control-sm  card-perfil" placeholder=" " @bind-Value="exampleModel.fecha"></InputDate>
+                        <label for="floatingInput">Fecha de nacimiento</label>
+                    </div>
+                </div>
+                <div class="col pr-0">
+                    <div class="form-floating mb-3 ">
+                        <InputSelect type="text" class="form-control form-control-sm card-perfil" id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder=" ">
+                            <option value="0">Santa cruz</option>
+
+                        </InputSelect>
+                        <label for="floatingInput">Lugar</label>
+                    </div>
+                </div>
+                    <div class=" pr-0">
+                        <div class="form-floating mb-3 ">
+                            <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+                            <label for="floatingInput">Persona con quien vive </label>
+                        </div>
+                    </div>
+            </div>
+
+        </div>
+           <div class="card card-perfil card-perfil-content row p-4 ">
+            <div>
+                <h6 class="mb-3 text">Datos Academicos</h6>
+
+            </div>
+
+
+            <div class="row d-flex flex-sm-column flex-xl-row-reverse flex-column pr-3">
+                     <div class="col ">
+                    <div class="row pr-0">
+                        <div class=" pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputSelect type="text" class="form-control form-control-sm" id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder="Idioma">
+                            <option value="0">4to Sec</option>
+
+                        </InputSelect>
+                        <label for="floatingInput">curso al que se postula</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pr-0">
+                        <div class=" pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">colegio de procedencia </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                </div>
+                
+        </div>
+
+        <a class="btn btn-primary float-right mt-3 pt-2" href="ListPostulation"> Guardar Datos</a>
+        </EditForm>
+    </div>
+
+
+
+
+
+
+
+@code {
+    private ExampleDTO exampleModel = new();
+
+    public void OnValidSubmit()
+    {
+        Console.WriteLine(exampleModel.fecha);
+    }
+}

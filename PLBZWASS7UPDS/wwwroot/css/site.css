@@ -612,8 +612,6 @@ full-width {
 {
     $i * 0.15
 }
-
-s;
 }
 }
 .card-Payment {
@@ -654,4 +652,34 @@ s;
 .QR-Payment {
     width: 50%;
     height: 50%;
+}
+.perfil-foto-post {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 130px !important;
+    height: 130px !important;
+    border-radius: 50%;
+    display: block;
+    margin:auto;
+}
+.table-postulation {
+    --bs-table-active-bg: #373b3e !important;
+    --bs-table-active-color: var(--fg-color) !important;
+    --bs-table-hover-color: var(--fg-color) !important;
+    border-color: #dee2e6 !important;
+    color: var(--fg-color) !important;
+}
+.table-bordered td {
+    border: inherit; 
+}
+.table thead th {
+    border-bottom: 2px solid #dee2e6;
+    border-top: none;
+}
+.table-bordered th, .table-bordered td {
+    border: 1px solid #dee2e6;
+}
+.itemlst:focus, .dropdown-item:hover {
+    color: #1e2125 !important;
 }

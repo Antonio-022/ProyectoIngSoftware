@@ -1,0 +1,138 @@
+﻿@page "/ListPostulation"
+<PageTitle>Lista de postulantes</PageTitle>
+<h3 class="text-center"> Lista de postulantes</h3>
+
+<div class="mr-3 pr-sm-0 pr-md-3 pr-0 mt-3">
+    <div class="table-responsive-lg">
+        <table class="table table-bordered table-postulation table-hover" style="min-width: 980px;">
+            <thead>
+                <tr>
+                    <th scope="col" class="col-1">Codigo</th>
+                    <th scope="col">nombre</th>
+                    <th scope="col">curso</th>
+                    <th scope="col" class=" text-center" width="5%">estado</th>
+                    <th scope="col" class="text-center" width="5%">accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>4to. Secundaria</td>
+                    <td class="text-center">
+                        <LabelsStatus tipo="0" txt="Rechazada"></LabelsStatus>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary w-100" @onclick="()=>{modal.AbrirModal().GetAwaiter();}"><i class="bi bi-pencil"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>4to. Secundaria</td>
+                    <td class="text-center">
+                        <LabelsStatus tipo="1" txt="Aceptada"></LabelsStatus>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary w-100" @onclick="()=>{modal.AbrirModal().GetAwaiter();}"><i class="bi bi-pencil"></i></button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry the Bird</td>
+                    <td>4to. Secundaria</td>
+                    <td class="text-center">
+                        <LabelsStatus tipo="2" txt="Pendiente"></LabelsStatus>
+                    </td>
+                    <td>
+
+                        <div class="btn-group dropstart w-100">
+                            <button type="button" class="btn btn-primary " data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <ul class="dropdown-menu" style="background-color:var(--bg-color);">
+
+                                <li><a class="dropdown-item itemlst" style="color:var(--fg-color) " @onclick="()=>{modal?.AbrirModal().GetAwaiter();}">Familiares</a></li>
+
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<Modal @ref="modal" sizeModal="SizeModal.large" >
+    <EditForm Model="exampleModel" OnValidSubmit="OnValidSubmit">
+
+        <div class=" row p-4 mb-3">
+            <div>
+                <h6 class="mb-3 text">Datos Personales</h6>
+
+            </div>
+
+            <div class="row d-flex flex-sm-column flex-xl-row-reverse flex-column pr-0">
+                <div class=" col-sm col-xl-3 col m-auto pr-0 mb-3">
+                    <div class="d-flex content-foto">
+                        <div class="perfil-foto-post " style="background-image: url('https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=');" alt="Foto"></div>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="row pr-0">
+                        <div class=" pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm  " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Apellidos </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row pr-0">
+                        <div class=" pr-0">
+                            <div class="form-floating mb-3 ">
+                                <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm  " @bind-Value="exampleModel.cadena"></InputText>
+                                <label for="floatingInput">Nombres </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+                <div class="col pr-0">
+                    <div class="form-floating mb-3 ">
+                        <InputDate id="floatingInput" class="form-control form-control-sm  " placeholder=" " @bind-Value="exampleModel.fecha"></InputDate>
+                        <label for="floatingInput">Fecha de nacimiento</label>
+                    </div>
+                </div>
+                <div class="col pr-0">
+                    <div class="form-floating mb-3 ">
+                        <InputSelect type="text" class="form-control form-control-sm " id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder=" ">
+                            <option value="0">Santa cruz</option>
+
+                        </InputSelect>
+                        <label for="floatingInput">Lugar</label>
+                    </div>
+                </div>
+                <div class=" pr-0">
+                    <div class="form-floating mb-3 ">
+                        <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm " @bind-Value="exampleModel.cadena"></InputText>
+                        <label for="floatingInput">Persona con quien vive </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </EditForm>
+</Modal>
+@code {
+
+    Modal? modal;
+    private ExampleDTO exampleModel = new();
+
+    public void OnValidSubmit()
+    {
+    }
+}
