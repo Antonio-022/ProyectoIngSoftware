@@ -1,4 +1,9 @@
-﻿function confirmar(title, text, icon) {
+﻿$(document).ready(function () {
+    console.log("ready!");
+    $("#floatingInput").addClass("form-control");
+});
+
+function confirmar(title, text, icon) {
     return new Promise(resolve => {
         Swal.fire({
             title,

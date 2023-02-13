@@ -683,3 +683,17 @@ full-width {
 .itemlst:focus, .dropdown-item:hover {
     color: #1e2125 !important;
 }
+.blazored-typeahead__results {
+    background: var(--bg-color) !important;
+    color: var(--fg-color) !important;
+}
+.blazored-typeahead__active-item, .blazored-typeahead__result:hover, .blazored-typeahead__result:focus {
+    background-color: rgb(var(--bg-color-hover)) !important;
+    color: var(--fg-color);
+}
+.blazored-typeahead__selected-item-highlighted {
+    background-color: rgb(var(--blue_900)) !important;
+}
+.blazored-typeahead__selected-item {
+    background-color: rgb(var(--blue_900)) !important;
+}

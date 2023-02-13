@@ -19,11 +19,14 @@
                     <div class="text-center footer-section">
                         <div class="full-width">
                             <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                <button type="button" class="btn btn-outline-primary btn-@modolight" @onclick="cambiarModolight">
+                                @*<button type="button" class="btn btn-outline-primary btn-@modolight" @onclick="cambiarModolight">
                                     <i class="bi bi-brightness-high"></i>
                                 </button>
                                 <button type="button" class="btn btn-outline-primary btn-@themeBtn" @onclick="cambiarModoDark">
                                     <i class="bi bi-moon-fill"></i>
+                                </button>*@
+                            <button type="button" class="btn btn-primary  rounded-circle" @onclick="cambiarModo">
+                                    <i class="bi bi-@icon"></i>
                                 </button>
                             </div>
                         </div>
@@ -66,7 +69,7 @@
     private string? classDark => modoDark ? "theme-dark" : null;
     private string? themeBtn => modoDark ? "primary" : null;
     private string? modolight => themeBtn != "primary" ? "primary" : null;
-
+    private string icon => modoDark ? "brightness-high" : "moon-fill";
     private bool collapseNavMenu = false;
 
 
