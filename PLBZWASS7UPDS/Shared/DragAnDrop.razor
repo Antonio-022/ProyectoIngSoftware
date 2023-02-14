@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Components.Forms;
+
+<div>
+    <div class="container-inputShared @dashed m-auto ">
+        <InputFile id="inputShared" OnChange="getFile" />
+        <div class="title-inputshared  ">
+            <img src="@imgSrc" style="width:inherit; height:inherit;" />
+        </div>
+    </div>
+    <h6 class="mt-3">
+        Arrastre y suelte la Imagen Aquí
+    </h6>
+</div>
+
+@code {
+    private string imgSrc  = "https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=";
+    private bool stateDisplay = true;
+    private string? Display => stateDisplay ? "d-flex" : "d-none";
+    private string? dashed => stateDisplay ? "dashed" : null;
+    private string? DisplayPreview => stateDisplay ? "d-none" : "d-flex";
+    const string format = "image/jpeg";
+    private async Task getFile(InputFileChangeEventArgs e)
+    {
+        var stream = e.File.OpenReadStream(maxAllowedSize: e.File.Size);
+        var ms = new MemoryStream();
+        await stream.CopyToAsync(ms);
+        var buffer = ms.ToArray();
+        var imgb64 = Convert.ToBase64String(buffer);
+        imgSrc = $"data:{format};base64,{imgb64}";
+        stateDisplay = false;
+        this.StateHasChanged();
+    }
+}

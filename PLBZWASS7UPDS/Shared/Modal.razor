@@ -1,12 +1,11 @@
 ﻿@inject IJSRuntime JSRuntime
-<div class="modal fade" id="@id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+<div class="modal fade" id="@id" data-bs-backdrop="@backdrop" data-bs-keyboard="@keyboard" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog @_sizeModal">
         <div class="modal-content">
             <div class="modal-header text">
-                <h5 class="modal-title" id="exampleModalLabel">@titulo</h5>
-                <button type="button " class=" btn fs-1 p-0 " style="width:fit-content; color:var(--fg-color)" data-bs-dismiss="modal" aria-label="Close">
-                    <i class="bi bi-x">
-
+                <h5 class="modal-title " id="exampleModalLabel">@titulo</h5>
+                <button type="button " class=" btn  p-0 fs-1 " style="width:fit-content; color:var(--fg-color);" @onclick="()=>{cerrar=true; onCerrar.InvokeAsync();}" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="bi bi-x ">
                     </i>
                 </button>
             </div>
@@ -26,45 +25,36 @@
     [Parameter] public string titulo { get; set; } = "Titulo";    
     [Parameter] public  SizeModal? sizeModal { get; set; }
     [Parameter] public RenderFragment ChildContent { get; set; }
+    [Parameter] public EventCallback onCerrar { get; set; }
+    public bool? cerrar { get; set; } = false;
 
 
     private string _sizeModal  
     { 
         get
         {
-            
-                switch (sizeModal)
-                {
-                    case SizeModal.small:
-                        return "modal-sm";                 
-                    case SizeModal.large:
-                        return "modal-lg";
-                    case SizeModal.extralarge:
-                        return "modal-xl";
-                    default:
-                        return "";
-                }
+
+            switch (sizeModal)
+            {
+                case SizeModal.small:
+                    return "modal-sm";                 
+                case SizeModal.large:
+                    return "modal-lg";
+                case SizeModal.extralarge:
+                    return "modal-xl";
+                default:
+                    return "";
+            }
         }
-                
+
     } 
 
 
     //bloquear que se cierre el modal al dar click fuera del modal
     [Parameter] public bool? bloquearCerrar { get; set; } = false;
-    
-    
-    private bool _bloquearCerrar
-    {
-        get
-        {
-            return bloquearCerrar ?? false;
-        }
-    }
-    
+    public string keyboard => bloquearCerrar == false ? "true" : "false";
+    public string backdrop => bloquearCerrar == false ? "true" : "static";
 
-  
-   
-   
     public async Task AbrirModal()
     {
         //show modal anulacion

@@ -15,7 +15,7 @@
 
 
 @code {
-    [Parameter] public string id { get; set; } = "formulario";
+    [Parameter] public string idContenderoPadre { get; set; } = "formulario";
     
 
     
@@ -35,7 +35,7 @@
         var Modal = $"$('#Preload').modal('show');";
         await js.InvokeVoidAsync("eval", Modal);
 
-        await js.InvokeVoidAsync("spinnerJS", id);
+        await js.InvokeVoidAsync("spinnerJS", idContenderoPadre);
         //await Task.Delay(3000); // call the service/api
         //js.InvokeVoidAsync("spinnerJSEnd", id);
         //var Modal2 = $"$('#Preload').modal('hide');";
@@ -44,7 +44,7 @@
     public async Task ocultarSpinner()
     {
 
-        await js.InvokeVoidAsync("spinnerJSEnd", id);
+        await js.InvokeVoidAsync("spinnerJSEnd", idContenderoPadre);
         var Modal2 = $"$('#Preload').modal('hide');";
         await js.InvokeVoidAsync("eval", Modal2);
     }

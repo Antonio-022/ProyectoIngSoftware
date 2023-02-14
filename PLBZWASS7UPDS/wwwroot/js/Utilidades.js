@@ -1,7 +1,4 @@
-﻿$(document).ready(function () {
-    console.log("ready!");
-    $("#floatingInput").addClass("form-control");
-});
+﻿
 
 function confirmar(title, text, icon) {
     return new Promise(resolve => {
@@ -92,31 +89,6 @@ function triggerFileDownload(fileName, url) {
     anchorElement.click();
     anchorElement.remove();
 }
-
-/*function saveByteArray(url) {
-    
-    var link = document.createElement('a');
-    link.href = url;
-    var fileName = "Comprobante de Registro";
-    link.download = fileName;
-    link.click();
-    link.remove();
-};
-
-
-function DonwloadPDF(base64) {
-    var binary_string = window.atob(base64);
-    var len = binary_string.length;
-    var bytes = new Uint8Array(len);
-    for (var i = 0; i < len; i++) {
-        bytes[i] = binary_string.charCodeAt(i);
-    }
-    var blob = new Blob([bytes.buffer], { type: "application/pdf" });
-    const url = URL.createObjectURL(blob);
-    saveByteArray(url);
-    URL.revokeObjectURL(url);
-
-}*/
 
 
 
