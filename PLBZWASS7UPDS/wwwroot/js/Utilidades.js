@@ -108,8 +108,25 @@ function triggerFileDownload(fileName, url) {
 }
 
 
+function DataTablesAdd(table) {
 
 
+    $(table).DataTable({
+        responsive:true
+        });
+
+
+}
+
+function DataTablesRemove(table) {
+
+    $(function () {
+
+        $(table).DataTable().destroy();
+
+    });
+
+}
 
 
 

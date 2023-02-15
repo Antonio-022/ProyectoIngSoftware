@@ -706,22 +706,29 @@ full-width {
 }
 .title-inputshared {
     position: absolute;
-    /* text-align: center; */
     height: 100%;
     width: 100%;
     justify-content: center;
-    /* transform: translate(0%, -14rem); */
     z-index: 1;
-    /* top: 0; */
-}
-.container-inputShared .title-inputshared {
-/*    opacity: 0.5;*/
+
 }
 
-.image-dropping,
-.container-inputShared:hover .title-inputshared {
-   /* opacity: 1;*/
+.title-inputshared-default {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    text-align:center;
+
 }
+.title-inputshared-default p {
+    opacity: 0.5;
+}
+
+
 .Preview {
     text-align: center;
     flex-direction: column;
@@ -738,15 +745,19 @@ full-width {
     align-items: center;
     position: relative;
 }
-}
+
 
 .dashed {
-  /*  border: 3px dashed rgb(var(--bg-color-hover));*/
+    border: 3px dashed rgb(var(--bg-color-hover));
 }
 
-    .image-dropping, .dashed:hover {
-       /* border: 3px dashed var(--bs-primary);*/
-    }
+.image-dropping, .dashed:hover {
+    border: 3px dashed var(--bs-primary);
+}
+.image-dropping p, .dashed:hover p {
+    opacity: 1;
+}
+
 .image-dropping {
     opacity: 1;
 }
@@ -765,3 +776,15 @@ full-width {
         -webkit-transform: rotateZ(-2deg);
     }
 }
+
+.formPostulacion .blazored-typeahead__controls {
+    height: 58px !important;
+}
+.col .blazored-typeahead__controls {
+    height: 38px !important;
+    font-size:16px;
+   
+}
+
+
+
