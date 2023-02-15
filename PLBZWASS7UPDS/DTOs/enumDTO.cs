@@ -11,7 +11,14 @@
         small = 1,
         large = 2,
         extralarge = 3
-
+    }
+    public enum Accept
+    {
+        imagen=1,
+        video=2,
+        audio=3,
+        documento=4,
+        all=5
 
     }
 }

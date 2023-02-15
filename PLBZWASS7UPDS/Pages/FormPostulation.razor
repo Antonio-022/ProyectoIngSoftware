@@ -8,14 +8,16 @@
 
   
 
-<div class="mr-3 pr-sm-0 pr-md-3 pr-0">
+<div class="container-perfil ">
+	<div class=" pl-sm-3 pl-md-3 pl-3 pr-sm-0 pr-md-3 pr-0">
 		<EditForm Model="exampleModel" OnValidSubmit="OnValidSubmit">
 			<div class="card card-perfil card-perfil-content row p-4 mb-3">
 			<div>
 				<h6 class="mb-3 text">Datos Personales</h6>
 			</div>
-			<div class="row d-flex flex-sm-column flex-xl-row-reverse flex-column pr-0">
-				<div class=" col-sm col-xl-2 col m-auto pr-0 mb-3">
+			<div class="row d-flex flex-sm-column flex-xl-row-reverse flex-column mr-3 pr-0">
+				<div class="row d-flex flex-sm-column flex-xl-row-reverse flex-column px-0 mr-0 ml-0">
+					<div class=" col-sm col-xl-2 col m-auto pr-0 mb-3">
 					<div class="d-flex content-foto">
 						<div class="perfil-foto-post " style="background-image: url('https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=');" alt="Foto">
 							<div style="    display: flex;justify-content: flex-end;height: inherit;align-items: end;}">
@@ -63,6 +65,8 @@
 						</div>
 					</div>
 				</div>
+				</div>
+				
 			</div>
 		
 			<div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
@@ -199,38 +203,15 @@
 			  
 			</div>
 		</div>
-		@*<a class="btn btn-primary float-right mt-3 pt-2" href="ListPostulation"> Guardar Datos</a>*@
+		<a class="btn btn-primary float-right mt-3 pt-2" href="ListPostulation"> Guardar Datos</a>
 		</EditForm>
 
-@*		<div >
-			<div class="container-inputShared @dashed w-50 m-auto " >
-				
-				<InputFile id="inputShared" class="@Display" OnChange="getFile"/> 
-			
-				<div class="title-inputshared @Display">
-						<h3>
-				  Arrastre y suelte la Imagen Aquí
-			  </h3>
-				</div>
-				
-				<div class="Preview @DisplayPreview ">
-					<img src="@imgSrc" style="width:200px; height:200px;" />
-					<button class="btn btn-danger" @onclick="()=>{imgSrc=null;stateDisplay=true;}">Remover Archivo</button>
-			</div>
-				
-			
-			</div>
-			
-		</div>*@
-		
-	
-		
-
-
-
 	</div>
+
+</div>
+
 	<Modal @ref="modal" id="editFoto" sizeModal="SizeModal.small" titulo="Editar Foto" onCerrar="cerrar" bloquearCerrar="true">
-		<DragAnDrop>
+		<DragAnDrop MaxSize="5" AcceptFile="Accept.imagen">
 		</DragAnDrop>
 	</Modal>
 

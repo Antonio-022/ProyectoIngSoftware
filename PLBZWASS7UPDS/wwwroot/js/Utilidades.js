@@ -1,5 +1,22 @@
 ﻿
 
+
+
+$(document).on("dragover", "#inputShared", function (e) {
+    console.log("over");
+
+    var timeout = window.dropZoneTimeout;
+    if (!timeout) {
+        $('.container-inputShared').addClass('image-dropping');
+    } else {
+        clearTimeout(timeout);
+    }
+    window.dropZoneTimeout = setTimeout(function () {
+        window.dropZoneTimeout = null;
+        $('.container-inputShared').removeClass('image-dropping');
+    }, 100);
+});
+
 function confirmar(title, text, icon) {
     return new Promise(resolve => {
         Swal.fire({
