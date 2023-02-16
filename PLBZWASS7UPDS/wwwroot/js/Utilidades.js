@@ -46,29 +46,26 @@ function StorageEvent(dotnetHelper) {
         if (event.storageArea === localStorage) {
             // It's local storage
             dotnetHelper.invokeMethodAsync("VerificarLogueo");
-           
+
         }
     }, false);
 }
 
 
-function timerInactivo(dotnetHelper)
-{
+function timerInactivo(dotnetHelper) {
     var timer;
     document.onmousemove = resetTimer;
     document.onmousedown = resetTimer;
     document.onmouseenter = resetTimer;
     document.onkeypress = resetTimer;
-   
 
-    function resetTimer()
-    {
+
+    function resetTimer() {
         clearTimeout(timer);
         timer = setTimeout(logout, 1800000); //30 MIN
     }
 
-    function logout()
-    {
+    function logout() {
         dotnetHelper.invokeMethodAsync("Logout");
 
     }
@@ -84,9 +81,9 @@ function spinnerJSEnd(id) {
 function modoOscuro() {
     console.log(document);
 }
-function AlertsToastr(Tipo,Mensaje,titulo) {
-    
-    toastr[Tipo](Mensaje,titulo);
+function AlertsToastr(Tipo, Mensaje, titulo) {
+
+    toastr[Tipo](Mensaje, titulo);
 };
 
 async function downloadFileFromStream2(fileName, contentStreamReference) {
@@ -107,32 +104,36 @@ function triggerFileDownload(fileName, url) {
     anchorElement.remove();
 }
 
+$(function () {
+    
+});
 
-function DataTablesAdd(table) {
 
+function ReadyDataTable(table, responsive, paging, searching, ordering, info, columnDefs) {
+  
+        $(document).ready(function () {
+            $(table).DataTable({
+                responsive: true,
+                paging: paging,
+                searching: searching,
+                ordering: ordering,
+                "info": info,
+                columnDefs: columnDefs,
+          
+            });
 
+        });
 
-        $(table).DataTable({
-           
-            paging: false,
-            searching: false,
-            ordering: false,
-            "info": false
+    console.log(columnDefs);
+  
+}
+
+function RemoveDataTable(table) {
+
+        $(document).ready(function () {
+            $(table).DataTable().destroy();
         });
 
 }
-
-function DataTablesRemove(table) {
-
-    $(function () {
-
-        $(table).DataTable().destroy();
-
-    });
-
-}
-
-
-
 
 

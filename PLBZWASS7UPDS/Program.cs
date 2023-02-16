@@ -18,7 +18,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 
 builder.Services.AddScoped<IMostrarMensajes, MostrarMensajes>();
 builder.Services.AddScoped<IMensajeToastr, MensajeToastr>();
-
+builder.Services.AddScoped<IDataTable, DataTable>();
 builder.Services.AddAuthorizationCore();
 
 builder.Services.AddScoped<ProveedorAutenticacionJWT>();

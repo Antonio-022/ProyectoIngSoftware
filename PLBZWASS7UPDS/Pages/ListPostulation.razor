@@ -3,200 +3,77 @@
 <h3 class="text-center"> Lista de postulantes</h3>
 
 <div class="mr-3 pr-sm-0 pr-md-3 pr-0 mt-3">
-    @*<div class="table-responsive-lg">
-    <table class="table  table-postulation table-hover" id="listPostulante" style="min-width: 980px;">
-    <thead>
-    <tr>
-    <th scope="col" class="col-1">Codigo</th>
-    <th scope="col">nombre</th>
-    <th scope="col">curso</th>
-    <th scope="col" class=" text-center" width="5%">estado</th>
-    <th scope="col" class="text-center" width="5%">accion</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <th scope="row">1</th>
-    <td>Mark</td>
-    <td>4to. Secundaria</td>
-    <td class="text-center">
-    <LabelsStatus tipo="0" txt="Rechazada"></LabelsStatus>
-    </td>
-    <td>
-    <button class="btn btn-primary w-100" @onclick="()=>{modal.AbrirModal().GetAwaiter();}"><i class="bi bi-pencil"></i></button>
-    </td>
-    </tr>
-    <tr>
-    <th scope="row">2</th>
-    <td>Jacob</td>
-    <td>4to. Secundaria</td>
-    <td class="text-center">
-    <LabelsStatus tipo="1" txt="Aceptada"></LabelsStatus>
-    </td>
-    <td>
-    <button class="btn btn-primary w-100" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
-    <i class="bi bi-pencil"></i></button>
-    </td>
-    </tr>
-    <tr>
-    <th scope="row">3</th>
-    <td>Larry the Bird</td>
-    <td>4to. Secundaria</td>
-    <td class="text-center">
-    <LabelsStatus tipo="2" txt="Pendiente"></LabelsStatus>
-    </td>
-    <td>
-
-    <div class="btn-group dropstart w-100">
-    <button type="button" class="btn btn-primary " data-bs-toggle="dropdown" aria-expanded="false">
-    <i class="bi bi-pencil"></i>
-    </button>
-    <ul class="dropdown-menu" style="background-color:var(--bg-color);">
-
-    <li><a class="dropdown-item itemlst" style="color:var(--fg-color) " @onclick="()=>{modalMain?.AbrirModal().GetAwaiter();}">Familiares</a></li>
-
-    </ul>
-    </div>
-    </td>
-    </tr>
-    </tbody>
-    </table>
-    </div>*@
-
-
-
-
-
-
-    <table id="table_id" class="table  display responsive nowrap" style="width:100%">
-        <thead>
-            <tr>
-                <th>Codigo</th>
-                <th>Nombre</th>
-                <th>Curso</th>
-                <th>Estado</th>
-                <th>Accion</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>2</th>
-                <td>Jacob</td>
-                <td>4to. Secundaria</td>
-                <td>
-                    <LabelsStatus tipo="1" txt="Aceptada"></LabelsStatus>
-                </td>
-                <td>
-                    <button class="btn btn-primary w-100" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
-                        <i class="bi bi-pencil"></i>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <th>3</th>
-                <td>Mark</td>
-                <td>4to. Secundaria</td>
-                <td>
-                    <LabelsStatus tipo="1" txt="Pendiente"></LabelsStatus>
-                </td>
-                <td>
-                    <button class="btn btn-primary w-100" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
-                        <i class="bi bi-pencil"></i>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <th>4</th>
-                <td>Larry the Bird</td>
-                <td>4to. Secundaria</td>
-                <td>
-                    <LabelsStatus tipo="1" txt="Pendiente"></LabelsStatus>
-                </td>
-                <td>
-                    <div class="btn-group dropstart w-100">
-                        <button type="button" class="btn btn-primary " data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-pencil"></i>
-                        </button>
-                        <ul class="dropdown-menu" style="background-color:var(--bg-color);">
-
-                            <li><a class="dropdown-item itemlst" style="color:var(--fg-color) " @onclick="()=>{modalMain?.AbrirModal().GetAwaiter();}">Familiares</a></li>
-
-                        </ul>
-                    </div>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
-
-
-
-
-
-
-
-
-
-
-</div>
-<Modal @ref="modalMain" id="listaFamiliar" sizeModal="SizeModal.large" titulo="Lista de Familiares">
-    <div class="container-listFamiliar">
+    <div class="container" >
         <div class="row">
-            <div class="col">
-                <div class="row">
-                    <div class="col-4">
-                        <button class="btn btn-primary " @onclick="()=>{modal.AbrirModal().GetAwaiter();}">Agregar Nuevo</button>
-                    </div>
+            <div class="col-xs-12">
+                <table id="table_id" class="table  table-postulation display responsive nowrap table-borderless" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>Curso</th>
+                            <th>Estado</th>
+                            <th class="col-1">Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>2</th>
+                            <td>Jacob</td>
+                            <td>4to. Secundaria</td>
+                            <td>
+                                <LabelsStatus tipo="1" txt="Aceptada"></LabelsStatus>
+                            </td>
+                            <td>
+                                <button class="btn btn-primary w-100" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td>Mark</td>
+                            <td>4to. Secundaria</td>
+                            <td>
+                                <LabelsStatus tipo="1" txt="Pendiente"></LabelsStatus>
+                            </td>
+                            <td>
+                                <button class="btn btn-primary w-100" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td>Larry the Bird</td>
+                            <td>4to. Secundaria</td>
+                            <td>
+                                <LabelsStatus tipo="1" txt="Pendiente"></LabelsStatus>
+                            </td>
+                            <td>
+                                <div class="btn-group dropstart w-100">
+                                    <button type="button" class="btn btn-primary " data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" style="background-color:var(--bg-color);">
 
-                </div>
+                                        <li><a class="dropdown-item itemlst" style="color:var(--fg-color) " @onclick='()=>{navigation.NavigateTo("/Familiares");}'>Familiares</a></li>
+
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
             </div>
-
-            <div class="col">
-                <span style="background:var(--bg-color)">Buscar Persona</span>
-                <BlazoredTypeahead SearchMethod="@Search1"
-                                   @bind-Value="@value1" DisableClear="@clearBtn"
-                                   Placeholder="Buscar Persona" style="background:inherit;color:var(--fg-color);">
-                    <SelectedTemplate Context="states">
-                        @states
-                    </SelectedTemplate>
-                    <ResultTemplate Context="states">
-                        @states
-                    </ResultTemplate>
-                    <NotFoundTemplate Context="states">
-                        No se encontraron resultados
-                    </NotFoundTemplate>
-                </BlazoredTypeahead>
-            </div>
-        </div>
-        <div class="row p-3">
-            <span class="fw-bold" style="background:var(--bg-color)">Lista de Familiares Asignados</span>
-            <table class="table  table-postulation table-hover" id="listPostulante">
-                <thead>
-                    <tr>
-                        <th scope="col">Codigo</th>
-                        <th scope="col">nombre</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry the Bird</td>
-
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
+</div>
+
+
+<Modal @ref="modalMain" id="listaFamiliar" sizeModal="SizeModal.large" titulo="Familiares">
+   
 </Modal>
 <Modal @ref="modal" sizeModal="SizeModal.large">
     <CreatePerson></CreatePerson>
@@ -207,57 +84,52 @@
     Modal? modalMain;
     private ExampleDTO exampleModel = new();
     [Inject]
-    IJSRuntime JS { get; set; }
+    IDataTable dataTable { get; set; }
+    [Inject]
+    NavigationManager navigation { get; set; }
     public void OnValidSubmit()
     {
     }
-    private string value1 = "";
-    private bool clearBtn => value1 == null || value1 == "" ? true : false;
-    private string[] states =
+
+
+
+
+    protected override async Task OnInitializedAsync()
     {
-        "Alabama", "Alaska", "American Samoa", "Arizona",
-        "Arkansas", "California", "Colorado", "Connecticut",
-        "Delaware", "District of Columbia", "Federated States of Micronesia",
-        "Florida", "Georgia", "Guam", "Hawaii", "Idaho",
-        "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
-        "Louisiana", "Maine", "Marshall Islands", "Maryland",
-        "Massachusetts", "Michigan", "Minnesota", "Mississippi",
-        "Missouri", "Montana", "Nebraska", "Nevada",
-        "New Hampshire", "New Jersey", "New Mexico", "New York",
-        "North Carolina", "North Dakota", "Northern Mariana Islands", "Ohio",
-        "Oklahoma", "Oregon", "Palau", "Pennsylvania", "Puerto Rico",
-        "Rhode Island", "South Carolina", "South Dakota", "Tennessee",
-        "Texas", "Utah", "Vermont", "Virgin Island", "Virginia",
-        "Washington", "West Virginia", "Wisconsin", "Wyoming",
-    };
-
-
-    private async Task<IEnumerable<string>> Search1(string value)
-    {
-        // In real life use an asynchronous function for fetching data from an api.
-        await Task.Delay(1000);
-
-        Console.WriteLine(value);
-        // if text is null or empty, show complete list
-        if (string.IsNullOrEmpty(value))
-            return states;
-        return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+        await DataTableenabled();
+        Console.WriteLine("iasid");
     }
-
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    public async Task DataTableenabled()
     {
-
-        if (firstRender)
-        {
-            await JS.InvokeVoidAsync("DataTablesAdd", "#table_id");
-
-        }
+        List<Columdef> columdef = new(){
+             new Columdef()
+             {
+                 responsivePriority = 1,
+                 targets = 0
+             },
+                new Columdef()
+             {
+                 responsivePriority = 1,
+                 targets = 1
+             },
+              new Columdef()
+             {
+                 responsivePriority = 10001,
+                 targets = 3
+             },
+              new Columdef()
+             {
+                 responsivePriority = 10001,
+                 targets = 2
+             }
+        };
+        await dataTable.Init("#table_id", columdef, true, false, false, false, false);
+     
     }
-
     public void Dispose()
     {
-        JS.InvokeVoidAsync("DataTablesRemove", "#table_id");
+
+        dataTable.Destroy("#table_id");
     }
 
 }

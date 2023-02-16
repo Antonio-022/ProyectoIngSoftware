@@ -231,7 +231,7 @@
 		Console.WriteLine(exampleModel.fecha);
 	}
 	private string value1 = "";
-	private bool clearBtn => value1 != null || value1 == "" ? true : false;
+	private bool clearBtn => value1 == null || value1 == "" ? true : false;
 	private string[] states =
 	{
 		"Alabama", "Alaska", "American Samoa", "Arizona",

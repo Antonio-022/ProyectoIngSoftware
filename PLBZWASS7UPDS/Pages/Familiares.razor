@@ -1,0 +1,123 @@
+﻿
+@page "/familiares"
+<PageTitle> Familiares </PageTitle>
+
+<div class="mr-3 pr-sm-0 pr-md-3 pr-0 mt-3">
+        <div class="row">
+            <div class="col-8">
+            
+
+                        <button class="btn btn-primary " 
+                                @onclick='()=>{navigation.NavigateTo("/formpostulation");}'>
+                            Agregar Nuevo
+                        </button>
+            
+            </div>
+
+            <div class="col">
+                
+                <span style="background:var(--bg-color)">Buscar Persona</span>
+                <BlazoredTypeahead SearchMethod="@Search1"
+                                   @bind-Value="@value1" DisableClear="@clearBtn"
+                                   Placeholder="Buscar Persona" style="background:inherit;color:var(--fg-color);">
+                    <SelectedTemplate Context="states">
+                    @states
+                    </SelectedTemplate>
+                    <ResultTemplate Context="states">
+                    @states
+                    </ResultTemplate>
+                    <NotFoundTemplate Context="states">
+                        No se encontraron resultados
+                    </NotFoundTemplate>
+                </BlazoredTypeahead>
+            </div>
+        </div>
+        <div class="row py-3">
+        @*<span class="fw-bold" style="background:var(--bg-color)">Lista de Familiares Asignados</span>*@
+         <div class="container">
+
+            <div class="col-xs-12">
+                    <table id="listFamiliares" class="table  table-postulation display responsive nowrap table-borderless" style="width:100%">
+                        <caption>Lista de Familiares</caption>
+                        <thead>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Nombre</th>
+                                <th>Tipo familiar</th>
+                                <th class="col-2">Acceso familiar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>2</th>
+                                <td>Jacob</td>
+                                <td>Padre</td>
+                                <td>Indefinido</td>
+
+                            </tr>
+                            <tr>
+                                <th>3</th>
+                                <td>Susana</td>
+                                <td>Madre</td>
+                                <td>Indefinido</td>
+                            </tr>
+                            <tr>
+                                <th>4</th>
+                                <td>Larry the Bird</td>
+                                <td>Tío</td>
+
+                                <td>Indefinido</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    </div>
+             
+            </div>
+        </div>
+    </div>
+
+@code {
+    [Inject]
+    IDataTable dataTable { get; set; }
+    [Inject]
+    NavigationManager navigation { get; set; }
+    private string value1 = "";
+    private bool clearBtn => value1 == null || value1 == "" ? true : false;
+    private string[] states =
+    {
+        "Alabama", "Alaska", "American Samoa", "Arizona",
+        "Arkansas", "California", "Colorado", "Connecticut",
+        "Delaware", "District of Columbia", "Federated States of Micronesia",
+        "Florida", "Georgia", "Guam", "Hawaii", "Idaho",
+        "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
+        "Louisiana", "Maine", "Marshall Islands", "Maryland",
+        "Massachusetts", "Michigan", "Minnesota", "Mississippi",
+        "Missouri", "Montana", "Nebraska", "Nevada",
+        "New Hampshire", "New Jersey", "New Mexico", "New York",
+        "North Carolina", "North Dakota", "Northern Mariana Islands", "Ohio",
+        "Oklahoma", "Oregon", "Palau", "Pennsylvania", "Puerto Rico",
+        "Rhode Island", "South Carolina", "South Dakota", "Tennessee",
+        "Texas", "Utah", "Vermont", "Virgin Island", "Virginia",
+        "Washington", "West Virginia", "Wisconsin", "Wyoming",
+    };
+
+
+    private async Task<IEnumerable<string>> Search1(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(1000);
+
+        Console.WriteLine(value);
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return states;
+        return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+    protected override async Task OnInitializedAsync()
+    {
+
+
+        await dataTable.Init("#listFamiliares", null, true, false, false, false, false);
+    }
+}
