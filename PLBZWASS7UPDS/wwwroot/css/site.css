@@ -786,5 +786,8 @@ full-width {
    
 }
 
-
+table span{
+    background:var(--bg-color) !important;
+    color:var(--fg-color);
+}
 

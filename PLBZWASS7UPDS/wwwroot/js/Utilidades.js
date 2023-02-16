@@ -111,10 +111,14 @@ function triggerFileDownload(fileName, url) {
 function DataTablesAdd(table) {
 
 
-    $(table).DataTable({
-        responsive:true
-        });
 
+        $(table).DataTable({
+           
+            paging: false,
+            searching: false,
+            ordering: false,
+            "info": false
+        });
 
 }
 
