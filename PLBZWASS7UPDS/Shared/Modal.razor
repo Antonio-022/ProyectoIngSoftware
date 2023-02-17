@@ -12,10 +12,14 @@
             <div class="modal-body" style="height:fit-content">
                 @ChildContent
             </div>
-            @*   <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary">Guardar</button>
-            </div>*@
+            @if(footerVisible)
+            {
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="()=>{cerrar=true; onCerrar.InvokeAsync();}" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" @onclick="()=>{cerrar=true; onSubmit.InvokeAsync();}">Guardar</button>
+                </div>
+            }
+
         </div>
     </div>
 </div>
@@ -26,6 +30,8 @@
     [Parameter] public  SizeModal? sizeModal { get; set; }
     [Parameter] public RenderFragment ChildContent { get; set; }
     [Parameter] public EventCallback onCerrar { get; set; }
+    [Parameter] public EventCallback onSubmit { get; set; }
+    [Parameter] public bool footerVisible { get; set; } = false;
     public bool? cerrar { get; set; } = false;
 
 

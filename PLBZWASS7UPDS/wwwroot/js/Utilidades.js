@@ -1,6 +1,21 @@
 ﻿
 
 
+//window.ReadyDataTable = (table, responsive, paging, searching, ordering, info, columnDefs) => {
+//    $(document).ready(function () {
+//        $(table).DataTable({
+//            responsive: responsive,
+//            paging: paging,
+//            searching: searching,
+//            ordering: ordering,
+//            "info": info,
+//            columnDefs: columnDefs,
+
+//        });
+
+//    });
+   
+//};
 
 $(document).on("dragover", "#inputShared", function (e) {
     console.log("over");
@@ -104,29 +119,34 @@ function triggerFileDownload(fileName, url) {
     anchorElement.remove();
 }
 
-$(function () {
-    
-});
+
+
+
 
 
 function ReadyDataTable(table, responsive, paging, searching, ordering, info, columnDefs) {
   
         $(document).ready(function () {
             $(table).DataTable({
-                responsive: true,
+                responsive: responsive,
                 paging: paging,
                 searching: searching,
                 ordering: ordering,
                 "info": info,
                 columnDefs: columnDefs,
-          
+
             });
 
         });
-
-    console.log(columnDefs);
+    
+    SizeContainer();
   
 }
+function SizeContainer() {
+    const anchorElement = document.getElementById('content').clientWidth;
+
+    return anchorElement;
+} 
 
 function RemoveDataTable(table) {
 

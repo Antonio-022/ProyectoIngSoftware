@@ -6,7 +6,7 @@
     <div class="container" >
         <div class="row">
             <div class="col-xs-12">
-                <table id="table_id" class="table  table-postulation display responsive nowrap table-borderless" style="width:100%">
+                <table id="table_id" class="table  table-postulation  dt-responsive table-borderless" style="width:100%">
                     <thead>
                         <tr>
                             <th>Codigo</th>
@@ -79,7 +79,7 @@
     <CreatePerson></CreatePerson>
 </Modal>
 @code {
-
+    MainLayout mainLayout;
     Modal? modal;
     Modal? modalMain;
     private ExampleDTO exampleModel = new();
@@ -87,18 +87,23 @@
     IDataTable dataTable { get; set; }
     [Inject]
     NavigationManager navigation { get; set; }
+
     public void OnValidSubmit()
     {
     }
 
 
-
-
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        await DataTableenabled();
-        Console.WriteLine("iasid");
+        if (firstRender)
+        {
+            await DataTableenabled();
+
+
+        }
+       
     }
+
     public async Task DataTableenabled()
     {
         List<Columdef> columdef = new(){

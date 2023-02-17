@@ -17,6 +17,7 @@ namespace PLBZWASS7UPDS.Helpers
         {
             
             await js.InvokeVoidAsync("ReadyDataTable", tableId, responsive, paging, searching, ordering, info, columnDefs);
+            
         }
         public async Task Destroy(string tableId)
         {

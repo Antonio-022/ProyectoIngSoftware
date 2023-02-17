@@ -1,0 +1,222 @@
+﻿		<EditForm Model="exampleModel" OnValidSubmit="OnValidSubmit" OnInvalidSubmit="OnInValidSubmit" >
+			<div class="card card-perfil card-perfil-content row pl-4 pt-4 mb-3">
+			<div>
+				<h6 class="mb-3 text">Datos Personales</h6>
+			</div>
+			<div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+				<div class="row d-flex flex-sm-column flex-xl-row-reverse flex-column pr-0">
+					<div class=" col-sm col-xl-2 col m-auto pr-0 mb-3">
+					<div class="d-flex content-foto">
+						<div class="perfil-foto-post " style="background-image: url('https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=');" alt="Foto">
+							<div style="    display: flex;justify-content: flex-end;height: inherit;align-items: end;}">
+								<button class="btn btn-primary rounded-circle" style="width: fit-content;height: 42px;text-align: center;"
+								@onclick="()=>{modal?.AbrirModal().GetAwaiter();}">
+									<i class="bi bi-pencil"></i>
+								</button>
+							</div> 
+						</div>
+					</div> 
+				</div>
+				<div class="col  ">
+					<div class="row d-flex flex-sm-column flex-xl-row flex-column ">
+					<div class="col pr-0">
+						<div class="form-floating mb-3 ">
+							<InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+							<label for="floatingInput">Primer Apellido</label>
+						</div>
+					</div>
+					<div class="col pr-0">
+						<div class="form-floating mb-3 ">
+								<InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+								<label for="floatingInput">Segundo Apellido </label>
+						</div>
+					</div>
+				</div>
+
+					<div class="row d-flex flex-sm-column flex-xl-row flex-column ">
+						<div class="col pr-0">
+							<div class="form-floating mb-3 ">
+								<InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+								<label for="floatingInput">Nombre </label>
+							</div>
+						</div>
+						<div class="col pr-0">
+							<div class="form-floating mb-3 ">
+								<InputSelect type="text" class="form-control form-control-sm card-perfil" id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder=" ">
+									
+									<option value="0">Femenino</option>
+									<option value="0">Masculino</option>
+								</InputSelect>
+								<label for="floatingInput">Sexo</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				
+			</div>
+		
+			<div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+				<div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+					<div class="col pr-0">
+						<div class="form-floating mb-3 ">
+							<InputSelect type="text" class="form-control form-control-sm card-perfil" id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder=" ">
+								<option value="0">CARNET DE IDENTIDAD</option>
+							</InputSelect>
+							<label for="floatingInput">Tipo Documento</label>
+						</div  
+					</div>
+					<div class="col pr-0">
+						<div class="form-floating mb-3 ">
+							<InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+							<label for="floatingInput">Nro. Documento </label>
+						</div>
+					</div>
+					  <div class="col pr-0">
+					  <div class="form-floating mb-3 ">
+							<InputSelect type="text" class="form-control form-control-sm card-perfil" id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder=" ">
+								<option value="0">SIN INTRODUCIR</option>
+							  
+							</InputSelect>
+							<label for="floatingInput">Expedido</label>
+						</div>
+					</div>
+				</div>
+				<div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+					<div class="col pr-0">
+						<div class="form-floating mb-3 ">
+							<InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+							<label for="floatingInput">Celular </label>
+						</div>
+
+					</div>
+					<div class="col pr-0">
+						<div class="form-floating mb-3 ">
+							<InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+							<label for="floatingInput">Correo Electr{ónico</label>
+						</div>
+					</div>
+					<div class="col pr-0">
+						<div class="form-floating mb-3 ">
+							<InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+							<label for="floatingInput">Fecha de Nacimiento </label>
+						</div>
+					</div>
+				</div>
+				<div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
+					<div class="col pr-0">
+						<div class="form-floating mb-3 ">
+							<InputSelect type="text" class="form-control form-control-sm card-perfil" id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder=" ">
+								<option value="0">DESC.</option>
+
+							</InputSelect>
+							<label for="floatingInput">Tipo Sangre</label>
+						</div>
+
+					</div>
+					<div class="col pr-0">
+						<div class="form-floating mb-3 ">
+							<InputSelect type="text" class="form-control form-control-sm card-perfil" id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder=" ">
+								<option value="0">Soltero</option>
+
+							</InputSelect>
+							<label for="floatingInput">Estado Civil</label>
+						</div>
+					</div>
+					<div class="col pr-0">
+						<div class="form-floating mb-3 ">
+							<InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+							<label for="floatingInput">Direcciósn Domicilio </label>
+						</div>
+					</div>
+				</div>
+				   <div class="row pr-0">
+						<div class=" pr-0">
+							<div class="mb-3 formPostulacion">
+
+								 <label  >Lugar de Nacimiento </label>
+
+								<BlazoredTypeahead SearchMethod="@Search1"
+													@bind-Value="@value1" DisableClear="@clearBtn"
+													   Placeholder="" style="background:inherit;color:var(--fg-color);t" >
+								<SelectedTemplate Context="states"  >
+									   @states
+								</SelectedTemplate>
+								<ResultTemplate Context="states">
+								   @states
+								</ResultTemplate>
+								<NotFoundTemplate Context="states">
+										No se encontraron resultados
+									</NotFoundTemplate>
+							</BlazoredTypeahead>  
+							
+							</div>
+						</div>
+					</div>
+			</div>
+			
+		</div>
+	
+		<div class="row justify-content-end">
+			<button class="btn btn-primary  mt-3 pt-2 " style="width:fit-content;"type="submit" > Guardar Datos</button>
+		</div>
+		
+		</EditForm>
+
+			<Modal @ref="modal" id="editFoto" sizeModal="SizeModal.small" titulo="Editar Foto"  bloquearCerrar="true" footerVisible="false" >
+		<div style="height:325px">		
+		<DragAnDrop MaxSize="5" @ref="dnd" AcceptFile="Accept.imagen">
+		</DragAnDrop>
+		</div>
+	</Modal>
+
+@code {
+	Modal? modal;
+	DragAnDrop dnd;
+	public bool onSubmit = false;
+	[Parameter]
+	public EventCallback<bool> onValidSubmit { get; set; }
+	private ExampleDTO exampleModel = new();
+	public void OnValidSubmit()
+	{
+		onSubmit = false;
+		onValidSubmit.InvokeAsync(onSubmit);
+	}
+	public void OnInValidSubmit()
+	{
+		onSubmit = true;
+		onValidSubmit.InvokeAsync(onSubmit);
+	}
+	private string value1 = "";
+	private bool clearBtn => value1 == null || value1 == "" ? true : false;
+	private string[] states =
+	{
+		"Alabama", "Alaska", "American Samoa", "Arizona",
+		"Arkansas", "California", "Colorado", "Connecticut",
+		"Delaware", "District of Columbia", "Federated States of Micronesia",
+		"Florida", "Georgia", "Guam", "Hawaii", "Idaho",
+		"Illinois", "Indiana", "Iowa", "Kansas", "Kentucky",
+		"Louisiana", "Maine", "Marshall Islands", "Maryland",
+		"Massachusetts", "Michigan", "Minnesota", "Mississippi",
+		"Missouri", "Montana", "Nebraska", "Nevada",
+		"New Hampshire", "New Jersey", "New Mexico", "New York",
+		"North Carolina", "North Dakota", "Northern Mariana Islands", "Ohio",
+		"Oklahoma", "Oregon", "Palau", "Pennsylvania", "Puerto Rico",
+		"Rhode Island", "South Carolina", "South Dakota", "Tennessee",
+		"Texas", "Utah", "Vermont", "Virgin Island", "Virginia",
+		"Washington", "West Virginia", "Wisconsin", "Wyoming",
+	};
+
+
+	private async Task<IEnumerable<string>> Search1(string value)
+	{
+		// In real life use an asynchronous function for fetching data from an api.
+		await Task.Delay(1000);
+
+		Console.WriteLine(value);
+		// if text is null or empty, show complete list
+		if (string.IsNullOrEmpty(value))
+			return states;
+		return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+	}
+}

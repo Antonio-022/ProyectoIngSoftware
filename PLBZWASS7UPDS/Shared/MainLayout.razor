@@ -52,7 +52,7 @@
                     <span></span>
                     <span></span>
                 </label>
-            <div class="container  @contenido mw-100 py-5 pr-4" id="contenido" style="padding-left:3.5rem" @onclick="ToggleNavMenuContent">
+            <div class="container  @contenido mw-100 py-5 pr-4" id="contenido" style="padding-left:3.5rem"   @onclick="ToggleNavMenuContent">
                     @Body
                 </div>
             </div>
@@ -71,6 +71,7 @@
     private string? modolight => themeBtn != "primary" ? "primary" : null;
     private string icon => modoDark ? "brightness-high" : "moon-fill";
     private bool collapseNavMenu = false;
+
 
 
     private bool? checkedV;
@@ -102,6 +103,7 @@
             checkedV = false;
             collapseNavMenu = false;
         }
+        this.StateHasChanged();
     }
 
     private void logout()

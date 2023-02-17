@@ -689,12 +689,23 @@ full-width {
     background-color: rgb(var(--bg-color-hover)) !important;
     color: var(--fg-color);
 }
+    .blazored-typeahead__result:hover ~ div.blazored-typeahead__active-item {
+        background: var(--bg-color) !important;
+        color: var(--fg-color) !important;
+    }
 .blazored-typeahead__selected-item-highlighted {
     background-color: rgb(var(--blue_900)) !important;
 }
+
 .blazored-typeahead__selected-item {
-    background-color: rgb(var(--blue_900)) !important;
+    background-color: #007bff !important;
 }
+.blazored-typeahead__input-mask-wrapper {
+    height: 58px;
+    pointer-events: all;
+           
+}
+
 #inputShared {
     height: 100%;
     width: 100%;
