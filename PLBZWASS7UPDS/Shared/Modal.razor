@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header text">
                 <h5 class="modal-title " id="exampleModalLabel">@titulo</h5>
-                <button type="button " class=" btn  p-0 fs-1 " style="width:fit-content; color:var(--fg-color);" @onclick="()=>{cerrar=true; onCerrar.InvokeAsync();}" data-bs-dismiss="modal" aria-label="Close">
+                <button type="button " class=" btn  p-0 fs-1 " style="width:fit-content; color:var(--fg-color);" @onclick="()=>{ onCerrar.InvokeAsync();}" data-bs-dismiss="modal" aria-label="Close">
                     <i class="bi bi-x ">
                     </i>
                 </button>
@@ -15,8 +15,8 @@
             @if(footerVisible)
             {
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" @onclick="()=>{cerrar=true; onCerrar.InvokeAsync();}" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" @onclick="()=>{cerrar=true; onSubmit.InvokeAsync();}">Guardar</button>
+                    <button type="button" class="btn btn-secondary" @onclick="()=>{ onCerrar.InvokeAsync();}" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" @onclick="()=>{ onSubmit.InvokeAsync();}">Guardar</button>
                 </div>
             }
 
@@ -32,8 +32,6 @@
     [Parameter] public EventCallback onCerrar { get; set; }
     [Parameter] public EventCallback onSubmit { get; set; }
     [Parameter] public bool footerVisible { get; set; } = false;
-    public bool? cerrar { get; set; } = false;
-
 
     private string _sizeModal  
     { 

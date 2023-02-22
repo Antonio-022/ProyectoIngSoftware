@@ -1,8 +1,9 @@
 ﻿@page "/familiares"
 <PageTitle> Familiares </PageTitle>
 
-<div class="px-3 mt-3">
-    <div class="container-fluid">
+<div class="">
+    <h3 class="text-center my-3">Lista de Familiares</h3>
+    <div class="container-fluid mx-3 px-3 ">
         <div class="row">
             <div class="col">
                 <div class="row">
@@ -35,13 +36,13 @@
             </div>
         </div>
     </div>
-    <div class="mr-3 pr-sm-0 pr-md-3 pr-0 mt-3">
+    <div class="mx-3 px-3">
         @*<span class="fw-bold" style="background:var(--bg-color)">Lista de Familiares Asignados</span>*@
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
                     <table id="listFamiliares" class="table  table-postulation display responsive nowrap table-borderless" style="width:100%">
-                        <caption>Lista de Familiares</caption>
+                        
                         <thead>
                             <tr>
                                 <th>Codigo</th>
@@ -117,10 +118,21 @@
             return states;
         return states.Where(x => x.Contains(value, StringComparison.InvariantCultureIgnoreCase));
     }
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Dispose();
+            await dataTable.Init("#listFamiliares", null, true, false, false, false, false);
+
+
+        }
+
+    }
+
+    public void Dispose()
     {
 
-
-        await dataTable.Init("#listFamiliares", null, true, false, false, false, false);
+        dataTable.Destroy("#listFamiliares");
     }
 }
