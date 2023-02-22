@@ -5,67 +5,60 @@
 
 <h3 class="text-center mb-3">Formulario Postulation</h3>
 
-<div class="container-perfil ">
-	<div class=" pl-sm-3 pl-md-3 pl-3 pr-sm-0 pr-md-3 pr-0">
-		<FormPersona onValidSubmit="OnValidSubmitv"></FormPersona>
-			@if(IsCreatePostulant)
-		{
-		<div class="pt-3">
-		<EditForm Model="exampleModel" OnValidSubmit="OnValidSubmit">
-			   <div class="card card-perfil card-perfil-content row pl-4 pt-4  ">
-			<div>
-				<h6 class="mb-3 text">Datos Academicos</h6>
-			</div>
-	
-			<div class="row d-flex flex-sm-column flex-xl-row-reverse flex-column pr-3">
-				<div class="col ">
-					<div class="row pr-0">
-						<div class=" pr-0">
-							<div class="form-floating mb-3 ">
-								<InputSelect type="text" class="form-control form-control-sm card-perfil " id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder="Idioma">
-							<option value="0">4to Sec</option>
-						</InputSelect>
-						<label for="floatingInput">curso al que se postula</label>
-							</div>
-						</div>
-					</div>
-					<div class="row pr-0">
-						<div class=" pr-0">
-							<div class="form-floating mb-3 ">
-								<InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
-									
-								<label for="floatingInput">colegio de procedencia </label>
-							</div>
-						</div>
-					</div>
-				</div>
-			  
-			</div>
-		</div>
-			<a class="btn btn-primary float-right mt-3 pt-2" href="ListPostulation"> Guardar Datos</a>
-	</EditForm>
-	</div>
-	}
-	
-	</div>
+<div class="container-perfil p-3">
+    <div class=" ">
+        <FormPersona onValidSubmit="OnValidSubmitv"></FormPersona>
+        <div class="">
+            <EditForm Model="exampleModel" OnValidSubmit="OnValidSubmit">
+                <div class="card card-perfil card-perfil-content row  p-4 ">
+                    <div>
+                        <h6 class="mb-3 text">Datos Academicos</h6>
+                    </div>
 
+                    <div class="row d-flex flex-sm-column flex-xl-row-reverse flex-column ">
+                        <div class="col ">
+                            <div class="row pr-0">
+                                <div class=" pr-0">
+                                    <div class="form-floating mb-3 ">
+                                        <InputSelect type="text" class="form-control form-control-sm card-perfil " id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder="Idioma">
+                                            <option value="0">4to Sec</option>
+                                        </InputSelect>
+                                        <label for="floatingInput">curso al que se postula</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pr-0">
+                                <div class=" pr-0">
+                                    <div class="form-floating mb-3 ">
+                                        <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
 
+                                        <label for="floatingInput">colegio de procedencia </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                    </div>
+                </div>
+                <a class="btn btn-primary float-right mt-3 pt-2" href="ListPostulation"> Guardar Datos</a>
+            </EditForm>
+        </div>
+    </div>
 </div>
 
 
 @code {
-	Spinner spinner;
+    Spinner spinner;
 
-	private ExampleDTO exampleModel = new();
+    private ExampleDTO exampleModel = new();
 
 
-	public bool IsCreatePostulant = false;
+    public bool IsCreatePostulant = false;
 
-	public void datosCiudad(string ciudad)
-	{
-		Console.WriteLine(ciudad);
-	}
+    public void datosCiudad(string ciudad)
+    {
+        Console.WriteLine(ciudad);
+    }
 
     public void OnValidSubmitv(bool valid)
     {
@@ -79,8 +72,8 @@
             Console.WriteLine("invaldi");
         }
     }
-	public void OnValidSubmit()
-	{
+    public void OnValidSubmit()
+    {
 
-	}
+    }
 }

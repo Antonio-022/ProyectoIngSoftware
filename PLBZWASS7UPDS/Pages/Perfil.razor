@@ -1,12 +1,12 @@
 ﻿@page "/perfil"
 <PageTitle>Perfil</PageTitle>
 
-<div class="container-perfil p-3">
-    <h3 class="text-center">Actualizacion de datos</h3>
+<div class="container-perfil container-fluid  pr-3 px-sm-5">
+    <h3 class="text-center m-3">Actualizacion de datos</h3>
     <EditForm Model="exampleModel" OnValidSubmit="OnValidSubmit">
         <DataAnnotationsValidator />
         <div class="row d-flex flex-sm-column flex-xl-row flex-column ">
-            <div class="col mr-3 pr-sm-0 pr-md-3 pr-0">
+            <div class="col mr-2 pr-sm-0 pr-md-3 pr-0">
                 <div class="card card-perfil card-perfil-content row p-4">
                     <div class="perfil-foto" style="background-image: url('https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=');" alt="Foto"></div>
                     <div style=" text-align:center">
@@ -163,10 +163,10 @@
             @*fin acerca estudiante*@
 
             @*inicio Datos Familiares*@
-            <div class="col mr-3 pr-sm-0 pr-md-3 pr-0">
+            <div class="col  pr-sm-0 pr-md-3 pr-0">
 
                 @*inicio Datos de la Papa*@
-                <div class="card card-perfil row p-3  card-perfil-content d-flex flex-sm-column flex-xl-row flex-colum ">
+                <div class="card card-perfil row p-3 mb-3  card-perfil-content d-flex flex-sm-column flex-xl-row flex-colum ">
                     <h6 class="text">Datos del Papá</h6>
                     <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
                         <div class="col pr-0">

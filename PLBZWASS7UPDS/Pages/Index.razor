@@ -3,33 +3,35 @@
 @inject NavigationManager navigationManager
 <PageTitle>SAADS</PageTitle>
 <h2 class="text text-center">Menú</h2>
-<div class="container-card">
+<main class="content-wrap mt-3 mx-sm-3 px-sm-3  px-0 mx-0 ">
+    <div class="content-fluid">
+        <section class="card-items">
+            <ListadoGenerico Listado="interfaces">
+                <HayRegistros Context="item">
+                    <div class="card-item" @onclick="@(()=> irPagina(item))">
+                        <div class="box-avatar">
+                            <i class="@item.Icono"></i>
+                        </div>
 
-    <ListadoGenerico Listado="interfaces">
-        <HayRegistros Context="item">
+                        <div class="box-info">
+                            <h2 class="bio-name">@item.Titulo</h2>
+                        </div>
+                    </div>
+                </HayRegistros>
+            </ListadoGenerico>
+        </section>
 
-            <div class="card card-menu" @onclick="@(()=> irPagina(item))">
-                <div class="card-body">
-                    <h5 class="card-title text-center" style="font-size: 2.25rem;">
-                        <i class="@item.Icono"></i>
-                    </h5>
-                    <p class="card-text text-center">@item.Titulo</p>
-                </div>
-            </div>
-
-        </HayRegistros>
-    </ListadoGenerico>
+    </div>
+</main>
 
 
 
-
-</div>
 
 @code {
 
     List<InterfaceDTO>? interfaces = new List<InterfaceDTO>()
     {
-    
+
        new InterfaceDTO { Titulo = "Perfil", Ubicacion = "perfil", Icono = "bi bi-person-lines-fill" },
        new InterfaceDTO { Titulo = "Estatutos y Reglamentos", Ubicacion = "downloadRule", Icono = "bi bi-journal-bookmark-fill" },
        new InterfaceDTO { Titulo = "Solicitud de Licencia", Ubicacion = "licences", Icono = "bi bi-file-medical-fill" },
@@ -37,7 +39,7 @@
        new InterfaceDTO { Titulo = "Horario de Clases", Ubicacion = "classSchedule", Icono = "bi bi-alarm-fill" },
        new InterfaceDTO { Titulo = "Citaciones", Ubicacion = "citations", Icono = "bi bi-send-check-fill" },
        new InterfaceDTO { Titulo = "Planificación curricular", Ubicacion = "curriculumPlanning", Icono = "bi bi-file-ruled-fill" },
-       
+
     };
     protected override async Task OnInitializedAsync()
     {

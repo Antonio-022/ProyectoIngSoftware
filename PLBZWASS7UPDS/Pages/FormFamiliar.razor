@@ -1,0 +1,42 @@
+﻿@page "/formfamiliar"
+<PageTitle>Formulario Familiar</PageTitle>
+
+<h3 class="text-center mb-3">Formulario Familiar</h3>
+
+<div class="container-perfil ">
+	<div class=" pl-sm-3 pl-md-3 pl-3 pr-sm-0 pr-md-3 pr-0">
+		<FormPersona onValidSubmit="OnValidSubmitv"></FormPersona>
+	</div>
+</div>
+
+
+@code {
+	Spinner spinner;
+
+	private ExampleDTO exampleModel = new();
+
+
+	public bool IsCreatePostulant = false;
+
+	public void datosCiudad(string ciudad)
+	{
+		Console.WriteLine(ciudad);
+	}
+
+	public void OnValidSubmitv(bool valid)
+	{
+		if (valid)
+		{
+
+			Console.WriteLine("valid");
+		}
+		else
+		{
+			Console.WriteLine("invaldi");
+		}
+	}
+	public void OnValidSubmit()
+	{
+
+	}
+}

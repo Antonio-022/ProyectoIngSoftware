@@ -2,11 +2,11 @@
 <PageTitle>Lista de postulantes</PageTitle>
 <h3 class="text-center"> Lista de postulantes</h3>
 
-<div class="mr-3 pr-sm-0 pr-md-3 pr-0 mt-3">
-    <div class="container" >
+<div class=" pr-sm-3 pr-md-0 pr-3 ">
+    <div class="container-fluid" >
         <div class="row">
-            <div class="col-xs-12">
-                <table id="table_id" class="table  table-postulation  dt-responsive table-borderless" style="width:100%">
+            <div class="col ">
+                <table id="table_id" class="table  table-postulation  dt-responsive " style="width:100%">
                     <thead>
                         <tr>
                             <th>Codigo</th>
@@ -25,7 +25,7 @@
                                 <LabelsStatus tipo="1" txt="Aceptada"></LabelsStatus>
                             </td>
                             <td>
-                                <button class="btn btn-primary w-100" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
+                                <button class="btn btn-primary btnAccion" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
                                     <i class="bi bi-pencil"></i>
                                 </button>
                             </td>
@@ -38,7 +38,7 @@
                                 <LabelsStatus tipo="1" txt="Pendiente"></LabelsStatus>
                             </td>
                             <td>
-                                <button class="btn btn-primary w-100" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
+                                <button class="btn btn-primary btnAccion" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
                                     <i class="bi bi-pencil"></i>
                                 </button>
                             </td>
@@ -51,8 +51,8 @@
                                 <LabelsStatus tipo="1" txt="Pendiente"></LabelsStatus>
                             </td>
                             <td>
-                                <div class="btn-group dropstart w-100">
-                                    <button type="button" class="btn btn-primary " data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="btn-group dropstart ">
+                                    <button type="button" class="btn btn-primary btnAccion" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="bi bi-pencil"></i>
                                     </button>
                                     <ul class="dropdown-menu" style="background-color:var(--bg-color);">
@@ -76,10 +76,10 @@
    
 </Modal>
 <Modal @ref="modal" sizeModal="SizeModal.large">
-    <CreatePerson></CreatePerson>
+
 </Modal>
 @code {
-    MainLayout mainLayout;
+
     Modal? modal;
     Modal? modalMain;
     private ExampleDTO exampleModel = new();

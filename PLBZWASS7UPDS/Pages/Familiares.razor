@@ -1,42 +1,45 @@
-﻿
-@page "/familiares"
+﻿@page "/familiares"
 <PageTitle> Familiares </PageTitle>
 
-<div class="mr-3 pr-sm-0 pr-md-3 pr-0 mt-3">
+<div class="px-3 mt-3">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-8">
-            
-
-                        <button class="btn btn-primary " 
+            <div class="col">
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-8 col-xl-8 text-end text-sm-end text-xl-start text-md-start">
+                        <button class="btn btn-primary "
                                 @onclick='()=>{navigation.NavigateTo("/formpostulation");}'>
                             Agregar Nuevo
                         </button>
-            
-            </div>
 
-            <div class="col">
-                
-                <span style="background:var(--bg-color)">Buscar Persona</span>
-                <BlazoredTypeahead SearchMethod="@Search1"
-                                   @bind-Value="@value1" DisableClear="@clearBtn"
-                                   Placeholder="Buscar Persona" style="background:inherit;color:var(--fg-color);">
-                    <SelectedTemplate Context="states">
-                    @states
-                    </SelectedTemplate>
-                    <ResultTemplate Context="states">
-                    @states
-                    </ResultTemplate>
-                    <NotFoundTemplate Context="states">
-                        No se encontraron resultados
-                    </NotFoundTemplate>
-                </BlazoredTypeahead>
+                    </div>
+
+                    <div class="col">
+
+                        <span style="background:var(--bg-color)">Buscar Persona</span>
+                        <BlazoredTypeahead SearchMethod="@Search1"
+                                           @bind-Value="@value1" DisableClear="@clearBtn"
+                                           Placeholder="Buscar Persona" style="background:inherit;color:var(--fg-color);">
+                            <SelectedTemplate Context="states">
+                                @states
+                            </SelectedTemplate>
+                            <ResultTemplate Context="states">
+                                @states
+                            </ResultTemplate>
+                            <NotFoundTemplate Context="states">
+                                No se encontraron resultados
+                            </NotFoundTemplate>
+                        </BlazoredTypeahead>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row py-3">
+    </div>
+    <div class="mr-3 pr-sm-0 pr-md-3 pr-0 mt-3">
         @*<span class="fw-bold" style="background:var(--bg-color)">Lista de Familiares Asignados</span>*@
-         <div class="container">
-
-            <div class="col-xs-12">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
                     <table id="listFamiliares" class="table  table-postulation display responsive nowrap table-borderless" style="width:100%">
                         <caption>Lista de Familiares</caption>
                         <thead>
@@ -71,11 +74,11 @@
 
                         </tbody>
                     </table>
-                    </div>
-             
+                </div>
             </div>
         </div>
     </div>
+</div>
 
 @code {
     [Inject]

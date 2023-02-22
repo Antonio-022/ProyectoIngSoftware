@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using PLBZWASS7UPDS;
 using PLBZWASS7UPDS.Auth;
 using PLBZWASS7UPDS.Helpers;
+using PLBZWASS7UPDS.Shared;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 var configuration = builder.Configuration;
@@ -20,6 +21,7 @@ builder.Services.AddScoped<IMostrarMensajes, MostrarMensajes>();
 builder.Services.AddScoped<IMensajeToastr, MensajeToastr>();
 builder.Services.AddScoped<IDataTable, DataTable>();
 builder.Services.AddAuthorizationCore();
+builder.Services.AddScoped<MainLayout>();
 
 builder.Services.AddScoped<ProveedorAutenticacionJWT>();
 builder.Services.AddScoped<AuthenticationStateProvider, ProveedorAutenticacionJWT>(

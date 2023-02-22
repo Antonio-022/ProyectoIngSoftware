@@ -6,16 +6,16 @@
 
 <PageTitle>BZCORE7WASS</PageTitle>
 
-@*<AuthorizeView>*@
+<AuthorizeView>
     <Authorized>
         <div class="wrapper @classDark">
             <!-- Sidebar  -->
-            <nav id="sidebar active" class="@sideBar">
-                <div id="sidebar">
+            <nav  >
+                <div id="sidebar" class="@sideBar">
                     <div class="pt-3">
                         <LoginDisplay />
                     </div>
-                    <MenuNav></MenuNav>
+                    <MenuNav ></MenuNav>
                     <div class="text-center footer-section">
                         <div class="full-width">
                             <div class="btn-group" role="group" aria-label="Basic outlined example">
@@ -52,7 +52,7 @@
                     <span></span>
                     <span></span>
                 </label>
-            <div class="container  @contenido mw-100 py-5 pr-4" id="contenido" style="padding-left:3.5rem"   @onclick="ToggleNavMenuContent">
+            <div class="container  @contenido mw-100 py-5 px-4" id="contenido"   @onclick="ToggleNavMenuContent">
                     @Body
                 </div>
             </div>
@@ -62,7 +62,7 @@
     <NotAuthorized>
         <NoAutorizado></NoAutorizado>
     </NotAuthorized>
-@*</AuthorizeView>*@
+</AuthorizeView>
 
 @code {
     public bool modoDark = true;
@@ -86,7 +86,7 @@
     public Task<AuthenticationState>? authenticationStateTask { get; set; }
 
 
-    private void ToggleNavMenu()
+    public void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
         if (collapseNavMenu)
@@ -95,9 +95,8 @@
             checkedV = false;
 
     }
-    private void ToggleNavMenuContent()
+    public void ToggleNavMenuContent()
     {
-
         if (collapseNavMenu)
         {
             checkedV = false;

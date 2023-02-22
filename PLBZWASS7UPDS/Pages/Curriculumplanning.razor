@@ -9,9 +9,11 @@
         <div class="download-item">
             @for (int i = 0; i < 5; i++)
             {
-                <div class="items w-auto d-flex bd-highlight flex-wrap justify-content-sm-center justify-content-md-start justify-content-center p-2 mb-3">
-                    <div class="p-2 flex-fill d-flex align-items-center">Lenguaje @(i + 1)</div>
-                    <div class="p-2  bd-highlight">
+                <div class="items w-auto d-flex bd-highlight flex-wrap justify-content-sm-center justify-content-md-start justify-content-center pt-1 w-100">
+                    <div class="p-2 mx-3 flex-fill d-flex align-items-center info w-auto mt-3">
+                        <p>Lenguaje @(i + 1)</p>
+                    </div>
+                    <div class="p-2  bd-highlight align-self-center">
                         <button class="btn btn-primary btn-sm">Seleccionar ></button>
                     </div>
                 </div>

@@ -149,20 +149,18 @@
         </div>
 
     </div>*@
-    <svg class="loading-progress">
-        <circle r="40%" cx="50%" cy="50%" />
-        <circle r="40%" cx="50%" cy="50%" />
-    </svg>
 
-    <Spinner @ref="spinner" id="formulario"></Spinner>
 
+    <Spinner @ref="spinner" idContenderoPadre="formulario"></Spinner>
+    <button @onclick='()=>{Mensajes.MostrarMensajeExitoso("asdusn");}' >Test SweetAlert </button>
 </div>
 
 
 @code {
     Spinner? spinner;
     Modal? modal;
-
+    [Inject]
+    public IMostrarMensajes Mensajes { get; set; }
 
     private async Task abrirModal()
     {

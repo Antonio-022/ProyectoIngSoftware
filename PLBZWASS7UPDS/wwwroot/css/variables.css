@@ -33,6 +33,7 @@
     --bg-color-hover: 203,203,203;
     --fg-color: #333;
     --fg-color-reverse: #333;
+
     /**/
     --filter: initial
 }
@@ -70,6 +71,7 @@
     --bg-color-1000: #424242;
     --fg-color: #f5f5f5;
     --fg-color-reverse: #f5f5f5;
+
     /**/
     --filter: invert(1) hue-rotate(180deg) contrast(2);
 }
