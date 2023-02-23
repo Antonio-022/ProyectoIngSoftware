@@ -1,7 +1,7 @@
 ﻿@page "/perfil"
 <PageTitle>Perfil</PageTitle>
 
-<div class="container-perfil container-fluid  pr-3 px-sm-5">
+<div class="container-perfil container pr-3 px-sm-5 fade-in" >
     <h3 class="text-center m-3">Actualizacion de datos</h3>
     <EditForm Model="exampleModel" OnValidSubmit="OnValidSubmit">
         <DataAnnotationsValidator />
@@ -28,7 +28,7 @@
                         </div>
                         <div class="col pr-0">
                             <div class="form-floating mb-3 ">
-                                <InputSelect type="text" class="form-control" id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder="Idioma">
+                                <InputSelect type="text" class="form-control card-perfil" id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder="Idioma">
                                     <option value="0">Femenino</option>
                                     <option value="1">Masculino</option>
                                 </InputSelect>
@@ -69,7 +69,7 @@
                     <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
                         <div class="col pr-0">
                         <div class="form-floating mb-3 ">
-                            <InputSelect type="text" class="form-control" id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder="Idioma">
+                                <InputSelect type="text" class="form-control card-perfil" id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder="Idioma">
                                 <option value="0">Con quien vive?</option>
 
                             </InputSelect>

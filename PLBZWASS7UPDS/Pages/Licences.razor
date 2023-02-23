@@ -1,26 +1,27 @@
 ﻿@page "/licences"
 <PageTitle>Solicitud de Licencia</PageTitle>
-<h3 class="text-center">Licencias Solicitud</h3>
-<div class="container-licencias mx-3 px-3   ">
+
+<div class="container-licencias mx-3 px-3  fade-in ">
+    <h3 class="text-center">Licencias Solicitud</h3>
     <button class="btn btn-success my-3 "> <i class="bi bi-pencil-square"></i> Solicitar Nueva Licencia</button>
     <div class="row">
         <div class="col">
-            <table class=" table  table-postulation  dt-responsive" id="Licensestable" style="width:100%">
-                <thead>
+            <table class="table table-postulation dt-responsive" id="Licensestable" style="width:100%">
+                @*<thead>
                     <tr>
-                        <th>#</th>
+                        <th>Id</th>
                         <th>Fecha de Solicitud</th>
                         <th>Fecha Desde</th>
                         <th>Fecha Hasta</th>
                         <th>días</th>
                         <th>Estado</th>
-                        <th class="col-1">Accion</th>
+                        <th>Opcion</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td>26-06-2022:24</td>
+                        <th >1</th>
+                        <td>26-06-2022</td>
                         <td>27-06-2022</td>
                         <td>28-06-2022</td>
                         <td>2</td>
@@ -28,12 +29,12 @@
                             <LabelsStatus tipo="0" txt="Rechazada"></LabelsStatus>
                         </td>
                         <td>
-                            <button class="btn btn-primary btn-sm "> ver detalle ></button>
+                           <button class="btn btn-primary btn-sm" style="font-size: 12px;"> ver detalle ></button>
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row">2</th>
-                        <td>26-06-2022:24</td>
+                        <th >2</th>
+                        <td>26-06-2022</td>
                         <td>27-06-2022</td>
                         <td>28-06-2022</td>
                         <td>2</td>
@@ -41,7 +42,46 @@
                             <LabelsStatus tipo="1" txt="Aceptada"></LabelsStatus>
                         </td>
                         <td>
-                            <button class="btn btn-primary btn-sm"> ver detalle ></button>
+                            <button class="btn btn-primary btn-sm" style="font-size: 12px;"> ver detalle ></button>
+                        </td>
+                    </tr>
+                </tbody>*@
+                <thead>
+                    <tr>
+                         <th>Id</th>
+                        <th>Fecha de Solicitud</th>
+                        <th>Fecha Desde</th>
+                        <th>Fecha Hasta</th>
+                        <th>días</th>
+                        <th>Estado</th>
+                        <th>Opcion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th >1</th>
+                        <td>26-06-2022</td>
+                        <td>27-06-2022</td>
+                        <td>28-06-2022</td>
+                        <td>2</td>
+                        <td>
+                            <LabelsStatus tipo="1" txt="realizada"></LabelsStatus>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary btn-sm" style="font-size: 12px;"> ver detalle ></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>1</th>
+                        <td>26-06-2022</td>
+                        <td>27-06-2022</td>
+                        <td>28-06-2022</td>
+                        <td>2</td>
+                        <td>
+                            <LabelsStatus tipo="0" txt="no realizada"></LabelsStatus>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary btn-sm" style="font-size: 12px;"> ver detalle ></button>
                         </td>
                     </tr>
                 </tbody>
@@ -65,6 +105,7 @@
     {
         if (firstRender)
         {
+
             await DataTableenabled();
 
 

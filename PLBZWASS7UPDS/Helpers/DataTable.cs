@@ -28,5 +28,6 @@ namespace PLBZWASS7UPDS.Helpers
     {
         public int responsivePriority { get; set; }
         public int targets { get; set; }
+        public bool orderable { get; set; } = false;
     }
 }

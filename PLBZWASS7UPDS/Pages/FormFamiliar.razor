@@ -1,42 +1,128 @@
 ﻿@page "/formfamiliar"
+@page "/formfamiliar/{IdPersona:int}"
 <PageTitle>Formulario Familiar</PageTitle>
-
-<h3 class="text-center mb-3">Formulario Familiar</h3>
-
-<div class="container-perfil ">
+<div class="container-perfil fade-in">
+    <h3 class="text-center mb-3">@title</h3>
 	<div class=" container-perfil container-fluid  pr-3 px-sm-5">
-		<FormPersona onValidSubmit="OnValidSubmitv"></FormPersona>
+		<FormPersona @ref="formPersona" onValidSubmit="OnValidSubmitv" IdPersona="IdPersona"></FormPersona>
+        @if (ShowForm == "show" && IdPersona == null)
+        {
+            <div class="collapse show " id="collapseExample">
+                <div class="card mt-3">
+                    <div class="">
+                        <EditForm Model="exampleModel" OnValidSubmit="OnValidSubmit" OnInvalidSubmit="onInValidSubmit">
+                            <DataAnnotationsValidator />
+                            <div class="card card-perfil card-perfil-content row  p-4 ">
+                                <div>
+                                    <h6 class="mb-3 text">Datos Laborales</h6>
+                                </div>
+
+                                <div class="row d-flex flex-sm-column flex-xl-row-reverse flex-column ">
+                                    <div class="col ">
+
+                                        <div class="row pr-0">
+                                            <div class=" pr-0">
+                                                <div class="form-floating mb-3 ">
+                                                    <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+                                                    <label for="floatingInput">Lugar de trabajo</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row d-flex flex-sm-column flex-xl-row flex-column ">
+                                            <div class="col pr-0">
+                                                <div class="form-floating mb-3 ">
+                                                    <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+                                                    <label for="floatingInput">Cargo</label>
+
+                                                </div>
+                                            </div>
+                                            <div class="col pr-0">
+                                                <div class="form-floating mb-3 ">
+                                                    <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+                                                    <label for="floatingInput">Profesión</label>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row pr-0">
+                                            <div class=" pr-0">
+                                                <div class="form-floating mb-3 ">
+                                                    <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+                                                    <label for="floatingInput">dirección de trabajo </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row d-flex flex-sm-column flex-xl-row flex-column ">
+                                            <div class="col pr-0">
+                                                <div class="form-floating mb-3 ">
+                                                    <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+                                                    <label for="floatingInput">Corro electrónico</label>
+
+                                                </div>
+                                            </div>
+                                            <div class="col pr-0">
+                                                <div class="form-floating mb-3 ">
+                                                    <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+                                                    <label for="floatingInput">Telefóno</label>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <button class="btn btn-primary float-right mt-3 pt-2" type="submit"> Guardar Datos</button>
+                        </EditForm>
+                    </div>
+
+                </div>
+            </div>
+        }
 	</div>
 </div>
 
 
 @code {
-	Spinner spinner;
+    [Parameter]
+    public int? IdPersona { get; set; } = null;
+    public string title => IdPersona is null ? "Formulario Familiar" : "Actualizar Datos";
 
-	private ExampleDTO exampleModel = new();
+    public string btntitle => IdPersona is null ? "Guardar Datos" : "Guardar cambios";
+    FormPersona? formPersona;
+    private ExampleDTO exampleModel = new();
+
+    public string ShowForm = "";
 
 
-	public bool IsCreatePostulant = false;
+    public void datosCiudad(string ciudad)
+    {
+        Console.WriteLine(ciudad);
+    }
 
-	public void datosCiudad(string ciudad)
-	{
-		Console.WriteLine(ciudad);
-	}
+    public void OnValidSubmitv(bool valid)
+    {
+        if (valid)
+        {
+            ShowForm = "show";
+            formPersona.onSubmit = false;
 
-	public void OnValidSubmitv(bool valid)
-	{
-		if (valid)
-		{
-
-			Console.WriteLine("valid");
-		}
-		else
-		{
-			Console.WriteLine("invaldi");
-		}
-	}
-	public void OnValidSubmit()
-	{
-
-	}
+        }
+        else
+        {
+            ShowForm = "";
+            formPersona.onSubmit = true;
+        }
+    }
+    public void OnValidSubmit()
+    {
+        
+        ShowForm = "";
+        formPersona.onSubmit = false;
+    }
+    public void onInValidSubmit()
+    {
+        ShowForm = "show";
+        formPersona.onSubmit = true;
+    }
 }

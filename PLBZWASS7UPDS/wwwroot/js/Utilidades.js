@@ -87,14 +87,16 @@ function ReadyDataTable(table, responsive, paging, searching, ordering, info, co
 
     $(document).ready(function () {
         $(table).DataTable({
+            
             responsive: responsive,
             paging: paging,
             searching: searching,
-            ordering: ordering,
+            ordering: false,
             "info": info,
             columnDefs: columnDefs,
-            autoWidth: false
-
+            autoWidth: false,
+ 
+        
         });
 
     });

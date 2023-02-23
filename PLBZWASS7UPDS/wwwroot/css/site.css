@@ -295,18 +295,7 @@ ul.CTAs {
             animation: slide 0.3s forwards;
         }
 
-    @keyframes slideout {
-        100% {
-            left: -100%;
-        }
-    }
-
-    @keyframes slide {
-        100% {
-            left: 0;
-        }
-    }
-
+   
     #content.active {
         margin-left: 0px;
         width: 100%;
@@ -335,17 +324,7 @@ ul.CTAs {
         left: 0;
     }
 
-    @keyframes slidein {
-        from {
-            margin-left: 100%;
-            width: 300%
-        }
 
-        to {
-            margin-left: 0%;
-            width: 100%;
-        }
-    }
 }
 
 .fade-in {
@@ -469,16 +448,7 @@ full-width {
 }
 
 
-@keyframes fadeIn {
 
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
 
 .container {
     /*padding: 30px 90px !important;*/
@@ -654,4 +624,88 @@ full-width {
 }
 table.dataTable td {
     vertical-align: middle;
+}
+/*table.dataTable thead > tr > th.sorting_asc {
+    cursor: none !important;
+     position:unset !important; 
+     padding-right: 0px !important; 
+}
+    table.dataTable thead > tr > th.sorting_asc:before {
+        display: none !important;
+    }
+    table.dataTable thead > tr > th.sorting_asc:after {
+        display: none !important;
+    }*/
+
+.blazored-typeahead.valid.modified {
+ 
+    outline: 1px solid #26b050 !important;
+    border: 1px solid #bfbfbf !important;
+}
+.blazored-typeahead.invalid {
+    outline: 1px solid red !important;
+    border-color: red !important;
+}
+
+.collapse {
+    animation-duration: 0.3s;
+    animation-name: TopIn;
+}
+.card-perfil {
+    position:relative;
+    z-index:1;
+}
+    .card-perfil .form-floating > label {
+        z-index: 1;
+    }
+
+    @keyframes TopIn {
+        from {
+        
+        position: relative;
+        top: -250px;
+       z-index:0;
+    }
+
+        to {
+            position: relative;
+            top: 0px;
+            z-index: 0;
+        }
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+ @keyframes slideout {
+        100% {
+            left: -100%;
+        }
+    }
+
+    @keyframes slide {
+        100% {
+            left: 0;
+        }
+    }
+.none{
+    display:none;
 }
