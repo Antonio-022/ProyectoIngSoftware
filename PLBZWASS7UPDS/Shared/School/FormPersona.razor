@@ -1,8 +1,6 @@
 ﻿<EditForm Model="exampleModel" OnValidSubmit="OnValidSubmit" OnInvalidSubmit="OnInValidSubmit">
     <DataAnnotationsValidator />
-
-
-    <div class="card card-perfil card-perfil-content row pl-4 pt-4 mb-3 " >
+    <div class="card card-perfil card-perfil-content row pl-4 pt-4 mb-3 ">
         <div>
             <h6 class="mb-3 text">Datos Personales</h6>
         </div>
@@ -26,42 +24,35 @@
                             <div class="form-floating mb-3 ">
                                 <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
                                 <label for="floatingInput">Primer Apellido</label>
-
                             </div>
                         </div>
                         <div class="col pr-0">
                             <div class="form-floating mb-3 ">
                                 <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
                                 <label for="floatingInput">Segundo Apellido </label>
-
                             </div>
                         </div>
                     </div>
-
                     <div class="row d-flex flex-sm-column flex-xl-row flex-column ">
                         <div class="col pr-0">
                             <div class="form-floating mb-3 ">
                                 <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
                                 <label for="floatingInput">Nombre </label>
-
                             </div>
                         </div>
                         <div class="col pr-0">
                             <div class="form-floating mb-3 ">
                                 <InputSelect type="text" class="form-control form-control-sm card-perfil" id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder=" ">
-
                                     <option value="0">Femenino</option>
                                     <option value="0">Masculino</option>
                                 </InputSelect>
                                 <label for="floatingInput">Sexo</label>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
             <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
                 <div class="col pr-0">
@@ -70,24 +61,20 @@
                             <option value="0">CARNET DE IDENTIDAD</option>
                         </InputSelect>
                         <label for="floatingInput">Tipo Documento</label>
-
                     </div>
                 </div>
                 <div class="col pr-0">
                     <div class="form-floating mb-3 ">
                         <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
                         <label for="floatingInput">Nro. Documento </label>
-
                     </div>
                 </div>
                 <div class="col pr-0">
                     <div class="form-floating mb-3 ">
                         <InputSelect type="text" class="form-control form-control-sm card-perfil" id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder=" ">
                             <option value="0">SIN INTRODUCIR</option>
-
                         </InputSelect>
                         <label for="floatingInput">Expedido</label>
-
                     </div>
                 </div>
             </div>
@@ -96,22 +83,18 @@
                     <div class="form-floating mb-3 ">
                         <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
                         <label for="floatingInput">Teléfono </label>
-
                     </div>
-
                 </div>
                 <div class="col pr-0">
                     <div class="form-floating mb-3 ">
                         <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
                         <label for="floatingInput">Correo Electrónico</label>
-
                     </div>
                 </div>
                 <div class="col pr-0">
                     <div class="form-floating mb-3 ">
                         <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
                         <label for="floatingInput">Fecha de Nacimiento </label>
-
                     </div>
                 </div>
             </div>
@@ -122,9 +105,7 @@
                             <option value="0">DESC.</option>
                         </InputSelect>
                         <label for="floatingInput">Tipo Sangre</label>
-
                     </div>
-
                 </div>
                 <div class="col pr-0">
                     <div class="form-floating mb-3 ">
@@ -132,23 +113,19 @@
                             <option value="0">Soltero</option>
                         </InputSelect>
                         <label for="floatingInput">Estado Civil</label>
-
                     </div>
                 </div>
                 <div class="col pr-0">
                     <div class="form-floating mb-3 ">
                         <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
                         <label for="floatingInput">Dirección Domicilio </label>
-
                     </div>
                 </div>
             </div>
             <div class="row pr-0">
                 <div class=" pr-0">
                     <div class="mb-3 formPostulacion">
-
                         <label>Lugar de Nacimiento </label>
-
                         <BlazoredTypeahead SearchMethod="@Search1"
                                            @bind-Value="@exampleModel.cadena" DisableClear="@clearBtn"
                                            Placeholder="Lugar de Nacimiento" style="background:inherit;color:var(--fg-color);t">
@@ -162,7 +139,6 @@
                                 No se encontraron resultados
                             </NotFoundTemplate>
                         </BlazoredTypeahead>
-
                     </div>
                 </div>
             </div>
@@ -175,15 +151,12 @@
         </div>
     }
 </EditForm>
-
 <Modal @ref="modal" id="editFoto" sizeModal="SizeModal.small" titulo="Editar Foto" bloquearCerrar="true" footerVisible="false">
     <div style="height:325px">
         <DragAnDrop MaxSize="5" @ref="dnd" AcceptFile="Accept.imagen">
         </DragAnDrop>
     </div>
 </Modal>
-
-
 @code {
     Modal? modal;
     DragAnDrop? dnd;
@@ -223,7 +196,6 @@
         "Texas", "Utah", "Vermont", "Virgin Island", "Virginia",
         "Washington", "West Virginia", "Wisconsin", "Wyoming",
     };
-
 
     private async Task<IEnumerable<string>> Search1(string value)
     {

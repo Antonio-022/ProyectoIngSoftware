@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-8 col-xl-8 text-end text-sm-end text-xl-start text-md-start">
                         <button class="btn btn-primary "
-                                @onclick='()=>{navigation.NavigateTo("/formfamiliar");}'>
+                                @onclick='()=>{navigation.NavigateTo("/formfamiliar/actualizar/2");}'>
                             Agregar Nuevo
                         </button>
 
@@ -49,7 +49,8 @@
                                 <th>Codigo</th>
                                 <th>Nombre</th>
                                 <th>Tipo familiar</th>
-                                <th class="col-2">Acceso familiar</th>
+                                <th>Acceso familiar</th>
+                                <th class="col-1">Accion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,6 +59,11 @@
                                 <td>Jacob</td>
                                 <td>Padre</td>
                                 <td>Indefinido</td>
+                                <td>
+                                    <button class="btn btn-primary btnAccion" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
+                                        <i class="fa fa-bars"></i>
+                                    </button>
+                                </td>
 
                             </tr>
                             <tr>
@@ -65,6 +71,11 @@
                                 <td>Susana</td>
                                 <td>Madre</td>
                                 <td>Indefinido</td>
+                                <td>
+                                    <button class="btn btn-primary btnAccion" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
+                                        <i class="fa fa-bars"></i>
+                                    </button>
+                                </td>
                             </tr>
                             <tr>
                                 <th>4</th>
@@ -72,6 +83,18 @@
                                 <td>Tío</td>
 
                                 <td>Indefinido</td>
+                                <td>
+                                      <div class="btn-group dropstart ">
+                                    <button type="button" class="btn btn-primary btnAccion" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa fa-bars"></i>
+                                    </button>
+                                    <ul class="dropdown-menu" style="background-color:var(--bg-color);">
+
+                                        <li><a class="dropdown-item itemlst" style="color:var(--fg-color) " @onclick='()=>{navigation.NavigateTo("/Familiares");}'>Familiares</a></li>
+
+                                    </ul>
+                                </div>
+                                </td>
                             </tr>
 
                         </tbody>
@@ -82,11 +105,20 @@
     </div>
 </div>
 
+<Modal @ref="modalMain" id="listaFamiliar" sizeModal="SizeModal.large" titulo="Familiares">
+
+</Modal>
+<Modal @ref="modal" sizeModal="SizeModal.large">
+
+</Modal>
 @code {
     [Inject]
     IDataTable dataTable { get; set; }
     [Inject]
     NavigationManager navigation { get; set; }
+    Modal? modal;
+    Modal? modalMain;
+   
     private string value1 = "";
     private bool clearBtn => value1 == null || value1 == "" ? true : false;
     private string[] states =

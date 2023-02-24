@@ -1,10 +1,10 @@
-﻿@page "/formfamiliar"
-@page "/formfamiliar/{IdPersona:int}"
+﻿@page "/formfamiliar/crear"
+@page "/formfamiliar/actualizar/{IdPersona:int}"
 <PageTitle>Formulario Familiar</PageTitle>
 <div class="container fade-in">
     <h3 class="text-center mb-3">@title</h3>
-	<div class=" container-perfil container-fluid  pr-3 px-sm-5">
-		<FormPersona @ref="formPersona" onValidSubmit="OnValidSubmitv" IdPersona="IdPersona"></FormPersona>
+    <div class=" container-perfil container-fluid  pr-3 px-sm-5">
+        <FormPersona @ref="formPersona" onValidSubmit="OnValidSubmitv" IdPersona="IdPersona"></FormPersona>
         @if (ShowForm == "show" && IdPersona == null)
         {
             <div class="collapse show " id="collapseExample">
@@ -70,7 +70,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                             <button class="btn btn-primary float-right mt-3 pt-2" type="submit"> Guardar Datos</button>
                         </EditForm>
@@ -79,7 +79,7 @@
                 </div>
             </div>
         }
-	</div>
+    </div>
 </div>
 
 
@@ -88,7 +88,7 @@
     public int? IdPersona { get; set; } = null;
     public string title => IdPersona is null ? "Formulario Familiar" : "Actualizar Datos";
 
-  
+
     FormPersona? formPersona;
     private ExampleDTO exampleModel = new();
 
@@ -116,7 +116,7 @@
     }
     public void OnValidSubmit()
     {
-        
+
         ShowForm = "";
         formPersona.onSubmit = false;
     }
