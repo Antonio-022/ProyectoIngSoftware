@@ -1,7 +1,7 @@
 ﻿@page "/formfamiliar"
 @page "/formfamiliar/{IdPersona:int}"
 <PageTitle>Formulario Familiar</PageTitle>
-<div class="container-perfil fade-in">
+<div class="container fade-in">
     <h3 class="text-center mb-3">@title</h3>
 	<div class=" container-perfil container-fluid  pr-3 px-sm-5">
 		<FormPersona @ref="formPersona" onValidSubmit="OnValidSubmitv" IdPersona="IdPersona"></FormPersona>
@@ -88,7 +88,7 @@
     public int? IdPersona { get; set; } = null;
     public string title => IdPersona is null ? "Formulario Familiar" : "Actualizar Datos";
 
-    public string btntitle => IdPersona is null ? "Guardar Datos" : "Guardar cambios";
+  
     FormPersona? formPersona;
     private ExampleDTO exampleModel = new();
 
@@ -105,13 +105,13 @@
         if (valid)
         {
             ShowForm = "show";
-            formPersona.onSubmit = false;
+            formPersona.onSubmit = true;
 
         }
         else
         {
             ShowForm = "";
-            formPersona.onSubmit = true;
+            formPersona.onSubmit = false;
         }
     }
     public void OnValidSubmit()

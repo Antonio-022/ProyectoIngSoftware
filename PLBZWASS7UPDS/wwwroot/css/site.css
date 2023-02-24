@@ -295,7 +295,7 @@ ul.CTAs {
             animation: slide 0.3s forwards;
         }
 
-   
+
     #content.active {
         margin-left: 0px;
         width: 100%;
@@ -323,8 +323,6 @@ ul.CTAs {
         transition: all 0.3s;
         left: 0;
     }
-
-
 }
 
 .fade-in {
@@ -537,51 +535,41 @@ full-width {
     padding-bottom: 4rem !important;
 }
 
-/*Spinner*/
-
-
-
-
 /*main dashboard*/
 
-.content-wrap {
-    grid-area: content;
+.content-wrap .info-boxes {
+    padding: 3em 0 2em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-gap: 2em;
 }
 
-    .content-wrap .info-boxes {
-        padding: 3em 0 2em;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        grid-gap: 2em;
+    .content-wrap .info-boxes .info-box {
+        background-color: var(--bg-sidebar-color) !important;
+        height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0 3em;
+        border: 1px solid #ede8f0;
+        border-radius: 5px;
     }
 
-        .content-wrap .info-boxes .info-box {
-            background-color: var(--bg-sidebar-color) !important;
-            height: 160px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 0 3em;
-            border: 1px solid #ede8f0;
-            border-radius: 5px;
-        }
 
+.content-wrap .card-items {
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-gap: 2em;
+}
 
-    .content-wrap .card-items {
-        padding: 0;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        grid-gap: 2em;
+    .content-wrap .card-items .card-item {
+        background-color: var(--bg-sidebar-color) !important;
+        text-align: center;
+        padding: 1.5em;
+        border-radius: 5px;
+        cursor: pointer;
     }
-
-        .content-wrap .card-items .card-item {
-            background-color: var(--bg-sidebar-color) !important;
-          
-            text-align: center;
-            padding: 1.5em;
-            border-radius: 5px;
-            cursor: pointer;
-        }
 
 .card-item:hover {
     box-shadow: 0px 0px 6px 2px #c6c6c6 !important;
@@ -604,7 +592,7 @@ full-width {
     }
 
 .content-wrap .card-items .card-item .box-info {
-    word-wrap:break-word;
+    word-wrap: break-word;
 }
 
     .content-wrap .card-items .card-item .box-info .bio-name {
@@ -618,10 +606,10 @@ full-width {
     }
 
 .btnAccion {
-  
     width: calc(100vh - 94vh) !important;
     font-size: small !important;
 }
+
 table.dataTable td {
     vertical-align: middle;
 }
@@ -638,10 +626,10 @@ table.dataTable td {
     }*/
 
 .blazored-typeahead.valid.modified {
- 
     outline: 1px solid #26b050 !important;
     border: 1px solid #bfbfbf !important;
 }
+
 .blazored-typeahead.invalid {
     outline: 1px solid red !important;
     border-color: red !important;
@@ -651,27 +639,28 @@ table.dataTable td {
     animation-duration: 0.3s;
     animation-name: TopIn;
 }
+
 .card-perfil {
-    position:relative;
-    z-index:1;
+    position: relative;
+    z-index: 1;
 }
+
     .card-perfil .form-floating > label {
         z-index: 1;
     }
 
-    @keyframes TopIn {
-        from {
-        
+@keyframes TopIn {
+    from {
         position: relative;
         top: -250px;
-       z-index:0;
+        z-index: 0;
     }
 
-        to {
-            position: relative;
-            top: 0px;
-            z-index: 0;
-        }
+    to {
+        position: relative;
+        top: 0px;
+        z-index: 0;
+    }
 }
 
 @keyframes slidein {
@@ -685,6 +674,7 @@ table.dataTable td {
         width: 100%;
     }
 }
+
 @keyframes fadeIn {
 
     from {
@@ -695,17 +685,19 @@ table.dataTable td {
         opacity: 1;
     }
 }
- @keyframes slideout {
-        100% {
-            left: -100%;
-        }
-    }
 
-    @keyframes slide {
-        100% {
-            left: 0;
-        }
+@keyframes slideout {
+    100% {
+        left: -100%;
     }
-.none{
-    display:none;
+}
+
+@keyframes slide {
+    100% {
+        left: 0;
+    }
+}
+
+.none {
+    display: none;
 }

@@ -2,9 +2,9 @@
 
 <PageTitle> Familiares </PageTitle>
 
-<div class=" fade-in ">
+<div class="container fade-in ">
     <h3 class="text-center my-3">Lista de Familiares</h3>
-    <div class="container-fluid mx-3 px-3 ">
+    <div class="container-fluid ">
         <div class="row">
             <div class="col">
                 <div class="row">
@@ -37,9 +37,9 @@
             </div>
         </div>
     </div>
-    <div class="mx-3 px-3">
+    <div class=" py-3">
         @*<span class="fw-bold" style="background:var(--bg-color)">Lista de Familiares Asignados</span>*@
-        <div class="container-fluid">
+        <div class="">
             <div class="row">
                 <div class="col">
                     <table id="listFamiliares" class="table  table-postulation dt-responsive" style="width:100%">
@@ -123,10 +123,7 @@
     {
         if (firstRender)
         {
-
             await dataTable.Init("#listFamiliares", null, true, false, false, false, false);
-
-
         }
 
     }

@@ -167,12 +167,11 @@
                 </div>
             </div>
         </div>
-
     </div>
-    @if (!onSubmit )
+    @if (!onSubmit || IdPersona is not null)
     {
         <div class="row justify-content-end">
-            <button class="btn btn-primary  mt-3 pt-2 " style="width:fit-content;" type="submit"> Guardar Datos</button>
+            <button class="btn btn-primary  mt-3 pt-2 " style="width:fit-content;" type="submit"> @btntitle</button>
         </div>
     }
 </EditForm>
@@ -191,6 +190,7 @@
     public bool onSubmit = false;
     [Parameter]
     public int? IdPersona { get; set; } = null;
+    public string btntitle => IdPersona is null ? "Guardar Datos" : "Guardar cambios";
     [Parameter]
     public EventCallback<bool> onValidSubmit { get; set; }
     private ExampleDTO exampleModel = new();
