@@ -1,9 +1,9 @@
 ﻿@page "/formfamiliar/crear"
 @page "/formfamiliar/actualizar/{IdPersona:int}"
 <PageTitle>Formulario Familiar</PageTitle>
-<div class="container fade-in">
+<div class="container p-0  fade-in">
     <h3 class="text-center mb-3">@title</h3>
-    <div class=" container-perfil container-fluid  pr-3 px-sm-5">
+    <div class="w-100">
         <FormPersona @ref="formPersona" onValidSubmit="OnValidSubmitv" IdPersona="IdPersona"></FormPersona>
         @if (ShowForm == "show" && IdPersona == null)
         {
@@ -12,23 +12,20 @@
                     <div class="">
                         <EditForm Model="exampleModel" OnValidSubmit="OnValidSubmit" OnInvalidSubmit="onInValidSubmit">
                             <DataAnnotationsValidator />
-                            <div class="card card-perfil card-perfil-content row  p-4 ">
+                            <div class="card card-perfil card-perfil-content row  p-0 p-sm-3 m-0">
                                 <div>
                                     <h6 class="mb-3 text">Datos Laborales</h6>
                                 </div>
 
-                                <div class="row d-flex flex-sm-column flex-xl-row-reverse flex-column ">
-                                    <div class="col ">
-
-                                        <div class="row pr-0">
-                                            <div class=" pr-0">
+                                    <div class="row pr-0">
+                                        <div class=" col pr-0">
                                                 <div class="form-floating mb-3 ">
                                                     <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
                                                     <label for="floatingInput">Lugar de trabajo</label>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row d-flex flex-sm-column flex-xl-row flex-column ">
+
+                                        <div class="row d-flex flex-sm-column flex-xl-row flex-column p-0  m-auto  ">
                                             <div class="col pr-0">
                                                 <div class="form-floating mb-3 ">
                                                     <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
@@ -44,15 +41,15 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row pr-0">
-                                            <div class=" pr-0">
+                                       <div class="row p-0 m-auto">
+                                        <div class=" col pr-0">
                                                 <div class="form-floating mb-3 ">
                                                     <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
                                                     <label for="floatingInput">dirección de trabajo </label>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row d-flex flex-sm-column flex-xl-row flex-column ">
+                                    <div class="row d-flex flex-sm-column flex-xl-row flex-column p-0  m-auto  ">
                                             <div class="col pr-0">
                                                 <div class="form-floating mb-3 ">
                                                     <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
@@ -71,7 +68,7 @@
                                     </div>
                                 </div>
 
-                            </div>
+                      
                             <button class="btn btn-primary float-right mt-3 pt-2" type="submit"> Guardar Datos</button>
                         </EditForm>
                     </div>

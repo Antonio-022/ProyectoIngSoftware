@@ -19,12 +19,7 @@
                     <div class="text-center footer-section">
                         <div class="full-width">
                             <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                @*<button type="button" class="btn btn-outline-primary btn-@modolight" @onclick="cambiarModolight">
-                                    <i class="bi bi-brightness-high"></i>
-                                </button>
-                                <button type="button" class="btn btn-outline-primary btn-@themeBtn" @onclick="cambiarModoDark">
-                                    <i class="bi bi-moon-fill"></i>
-                                </button>*@
+
                             <button type="button" class="btn btn-primary  rounded-circle mb-3" style="height: 42px;" @onclick="cambiarModo">
                                     <i class="bi bi-@icon"></i>
                                 </button>
@@ -52,7 +47,7 @@
                     <span></span>
                     <span></span>
                 </label>
-            <div class="container  @contenido mw-100 py-5 px-4" id="contenido"   @onclick="ToggleNavMenuContent">
+            <div class="container-fluid  @contenido  py-5 px-4" id="contenido"   @onclick="ToggleNavMenuContent">
                     @Body
                 </div>
             </div>

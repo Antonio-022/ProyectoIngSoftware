@@ -1,0 +1,53 @@
+﻿<EditForm Model="exampleModel" OnValidSubmit="OnValidSubmit" OnInvalidSubmit="onInValidSubmit">
+    <DataAnnotationsValidator />
+    
+        <div>
+            <h6 class="my-3 text">Datos Adicionales</h6>
+        </div>
+
+        <div class="row">
+            <div class=" col pr-0">
+                <div class="form-floating mb-3 ">
+                    <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm  " @bind-Value="exampleModel.cadena"></InputText>
+                    <label for="floatingInput">Persona con quien vive </label>
+                </div>
+
+            </div>
+        </div>
+        <div>
+            <h6 class="mb-3 text">Datos Academicos</h6>
+
+            <div class="row d-flex flex-sm-column flex-xl-row flex-column  ">
+                <div class="col ">
+                    <div class="form-floating mb-3 ">
+                        <InputSelect type="text" class="form-control form-control-sm  " id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder="Idioma">
+                            <option value="0">4to Sec</option>
+                        </InputSelect>
+                        <label for="floatingInput">curso al que se postula</label>
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="form-floating mb-3 ">
+                        <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm  " @bind-Value="exampleModel.cadena"></InputText>
+                        <label for="floatingInput">colegio de procedencia </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    <button class="btn btn-primary float-right mt-3 pt-2" type="submit"> Guardar Cambios</button>
+</EditForm>
+
+@code {
+    private ExampleDTO exampleModel = new();
+    public void OnValidSubmit()
+    {
+
+    }
+    public void onInValidSubmit()
+    {
+
+    }
+}

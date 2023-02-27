@@ -1,12 +1,12 @@
 ﻿@page "/perfil"
 <PageTitle>Perfil</PageTitle>
 
-<div class="container-perfil container pr-3 px-sm-5 fade-in" >
+<div class="container px-0 px-sm-5  fade-in">
     <h3 class="text-center m-3">Actualizacion de datos</h3>
     <EditForm Model="exampleModel" OnValidSubmit="OnValidSubmit">
         <DataAnnotationsValidator />
-        <div class="row d-flex flex-sm-column flex-xl-row flex-column ">
-            <div class="col mr-2 pr-sm-0 pr-md-3 pr-0">
+        <div class="row d-flex flex-sm-column flex-xl-row flex-column p-0 p-sm-3 m-0">
+            <div class="col mr-0 mr-sm-2 ">
                 <div class="card card-perfil card-perfil-content row p-4">
                     <div class="perfil-foto" style="background-image: url('https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=');" alt="Foto"></div>
                     <div style=" text-align:center">
@@ -16,8 +16,8 @@
                     </div>
                 </div>
                 @*inicio acerca estudiante*@
-                <div class="card card-perfil row p-3 mt-3 card-perfil-content d-flex flex-sm-column flex-xl-row flex-column ">
-                    <h6 class="text">Acerca del Estudiante</h6>
+                <div class="card card-perfil row mt-3 card-perfil-content d-flex flex-sm-column flex-xl-row flex-column p-0 p-sm-3">
+                    <h6 class="text my-3">Acerca del Estudiante</h6>
 
                     <div class="row  d-flex flex-sm-column flex-xl-row flex-column pr-0">
                         <div class="col  pr-0">
@@ -94,8 +94,8 @@
                 </div>
 
                 @*inicio Certificado de nacimiento*@
-                <div class="card card-perfil row p-3 mt-3 card-perfil-content d-flex flex-sm-column flex-xl-row flex-colum ">
-                    <h6 class="text">Certificado de Nacimiento</h6>
+                <div class="card card-perfil row p-0 p-sm-3 mt-3 mb-3 card-perfil-content d-flex flex-sm-column flex-xl-row flex-colum ">
+                    <h6 class="text my-3">Certificado de Nacimiento</h6>
 
                     <div class="row  d-flex flex-sm-column flex-xl-row flex-column pr-0">
                         <div class="col pr-0">
@@ -129,8 +129,8 @@
                 @*inicio Certifacdo de nacimiento*@
 
                 @*inicio Certificado de nacimiento*@
-                <div class="card card-perfil p-3 row mb-3 mt-3 card-perfil-content d-flex flex-sm-column flex-xl-row flex-colum ">
-                    <h6 class="text">Seguro Médico</h6>
+                <div class="card card-perfil p-0 p-sm-3 row mb-3  p-0 p-sm-3 card-perfil-content d-flex flex-sm-column flex-xl-row flex-colum ">
+                    <h6 class="text my-3">Seguro Médico</h6>
 
                     <div class="row  d-flex flex-sm-column flex-xl-row flex-column pr-0">
                         <div class="col pr-0">
@@ -163,11 +163,11 @@
             @*fin acerca estudiante*@
 
             @*inicio Datos Familiares*@
-            <div class="col  pr-sm-0 pr-md-3 pr-0">
+            <div class="col  mr-0 mr-sm-2">
 
                 @*inicio Datos de la Papa*@
-                <div class="card card-perfil row p-3 mb-3  card-perfil-content d-flex flex-sm-column flex-xl-row flex-colum ">
-                    <h6 class="text">Datos del Papá</h6>
+                <div class="card card-perfil row p-0 p-sm-3 mb-3  card-perfil-content d-flex flex-sm-column flex-xl-row flex-colum ">
+                    <h6 class="text my-3">Datos del Papá</h6>
                     <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
                         <div class="col pr-0">
                             <div class="form-floating mb-3 ">
@@ -238,8 +238,8 @@
 
 
                 @*inicio Datos de la Mamá*@
-                <div class="card card-perfil row p-3  card-perfil-content d-flex flex-sm-column flex-xl-row flex-colum ">
-                    <h6 class="text">Datos de la Mamá</h6>
+                <div class="card card-perfil row p-0 p-sm-3  card-perfil-content d-flex flex-sm-column flex-xl-row flex-colum ">
+                    <h6 class="text my-3">Datos de la Mamá</h6>
                     <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
                         <div class="col pr-0">
                             <div class="form-floating mb-3 ">
@@ -309,8 +309,8 @@
                 @*fin Datos de la Mamá*@
                
                 @*inicio Familiar de Referencia*@
-                <div class="card card-perfil row p-3 mt-3 mb-3 card-perfil-content d-flex flex-sm-column flex-xl-row flex-colum ">
-                    <h6 class="text">Familiar de Referencia</h6>
+                <div class="card card-perfil row p-0 p-sm-3 mt-3 mb-3 card-perfil-content d-flex flex-sm-column flex-xl-row flex-colum ">
+                    <h6 class="text my-3">Familiar de Referencia</h6>
 
                     <div class="row d-flex flex-sm-column flex-xl-row flex-column pr-0">
                         <div class="col pr-0">

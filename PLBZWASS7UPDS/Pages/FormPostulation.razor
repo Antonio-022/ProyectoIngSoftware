@@ -1,41 +1,37 @@
-﻿@page "/formpostulation"
+﻿
+@page "/formpostulation/crear"
+@page "/formpostulation/actualizar/{IdPersona:int}"
 <PageTitle>Formulario Postulation</PageTitle>
-<div class="container-perfil container-fluid  pr-3 px-sm-5 fade-in">
-    <h3 class="text-center mb-3">Formulario Postulation</h3>
+<div class="container-perfil container p-0 fade-in">
+    <h3 class="text-center mb-3">@title</h3>
     <div class="w-100">
-        <FormPersona @ref="formPersona" onValidSubmit="OnValidSubmitv" ></FormPersona>
-        @if(ShowForm == "show"){
-        <div class="collapse show " id="collapseExample">
+        <FormPersona @ref="formPersona" onValidSubmit="OnValidSubmitv" IdPersona="IdPersona"></FormPersona>
+        @if (ShowForm == "show" && IdPersona == null)
+        {
+            <div class="collapse show " id="collapseExample">
                 <div class="card mt-3">
-                <div class="">
+                    <div class="">
                         <EditForm Model="exampleModel" OnValidSubmit="OnValidSubmit" OnInvalidSubmit="onInValidSubmit">
                             <DataAnnotationsValidator />
-                        <div class="card card-perfil card-perfil-content row  p-4 ">
+                            <div class="card card-perfil card-perfil-content row  p-0 p-sm-3 m-0 ">
                                 <div>
-                                    <h6 class="mb-3 text">Datos Adicionales</h6>
+                                    <h6 class="my-3 text">Datos Adicionales</h6>
                                 </div>
 
-                                <div class="row d-flex flex-sm-column flex-xl-row-reverse flex-column ">
-                                    <div class="col ">
- 
-                                        <div class="row pr-0">
-                                            <div class=" pr-0">
-                                                <div class="form-floating mb-3 ">
-                                                    <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
-                                                    <label for="floatingInput">Persona con quien vive </label>
-                                                </div>
-                                            </div>
+                                <div class="row pr-0">
+                                    <div class=" col pr-0">
+                                        <div class="form-floating mb-3 ">
+                                            <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
+                                            <label for="floatingInput">Persona con quien vive </label>
                                         </div>
+
                                     </div>
                                 </div>
-                            <div>
-                                <h6 class="mb-3 text">Datos Academicos</h6>
-                            </div>
+                                <div>
+                                    <h6 class="mb-3 text">Datos Academicos</h6>
 
-                            <div class="row d-flex flex-sm-column flex-xl-row-reverse flex-column ">
-                                <div class="col ">
-                                    <div class="row pr-0">
-                                        <div class=" pr-0">
+                                    <div class="row d-flex flex-sm-column flex-xl-row flex-column  ">
+                                        <div class="col ">
                                             <div class="form-floating mb-3 ">
                                                 <InputSelect type="text" class="form-control form-control-sm card-perfil " id="floatingInput" @bind-Value="@exampleModel.cadena" placeholder="Idioma">
                                                     <option value="0">4to Sec</option>
@@ -43,24 +39,23 @@
                                                 <label for="floatingInput">curso al que se postula</label>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row pr-0">
-                                        <div class=" pr-0">
+                                        <div class="col ">
                                             <div class="form-floating mb-3 ">
                                                 <InputText id="floatingInput" placeholder=" " class="form-control form-control-sm card-perfil " @bind-Value="exampleModel.cadena"></InputText>
                                                 <label for="floatingInput">colegio de procedencia </label>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
+
                             </div>
-                        </div>
-                        <button class="btn btn-primary float-right mt-3 pt-2" type="submit" > Guardar Datos</button>
-                    </EditForm>
+                            <button class="btn btn-primary float-right mt-3 pt-2" type="submit"> Guardar Datos</button>
+                        </EditForm>
+                    </div>
+
                 </div>
-               
             </div>
-        </div>
         }
     </div>
 </div>
@@ -69,6 +64,9 @@
 @code {
     Spinner spinner;
     FormPersona? formPersona;
+    [Parameter]
+    public int? IdPersona { get; set; } = null;
+    public string title => IdPersona is null ? "Formulario Postulante" : "Actualizar Datos";
     private ExampleDTO exampleModel = new();
 
     public string ShowForm = "";
@@ -103,5 +101,5 @@
         ShowForm = "show";
         formPersona.onSubmit = true;
     }
-        
+
 }

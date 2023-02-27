@@ -3,14 +3,15 @@
 <PageTitle> Familiares </PageTitle>
 
 <div class="container fade-in ">
-    <h3 class="text-center my-3">Lista de Familiares</h3>
+    <h3 class="text-center ">Lista de Familiares</h3>
     <div class="container-fluid ">
         <div class="row">
-            <div class="col">
+            <div class="col ">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-8 col-xl-8 text-end text-sm-end text-xl-start text-md-start">
+                        <p></p>
                         <button class="btn btn-primary "
-                                @onclick='()=>{navigation.NavigateTo("/formfamiliar/actualizar/2");}'>
+                                @onclick='()=>{navigation.NavigateTo("/formfamiliar/crear");}'>
                             Agregar Nuevo
                         </button>
 
@@ -50,7 +51,7 @@
                                 <th>Nombre</th>
                                 <th>Tipo familiar</th>
                                 <th>Acceso familiar</th>
-                                <th class="col-1">Accion</th>
+                                <th class="col-1 text-center">Accion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -59,8 +60,8 @@
                                 <td>Jacob</td>
                                 <td>Padre</td>
                                 <td>Indefinido</td>
-                                <td>
-                                    <button class="btn btn-primary btnAccion" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
+                                <td class="text-center">
+                                    <button class="btn text-light w-auto btnAccion" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
                                         <i class="fa fa-bars"></i>
                                     </button>
                                 </td>
@@ -71,8 +72,8 @@
                                 <td>Susana</td>
                                 <td>Madre</td>
                                 <td>Indefinido</td>
-                                <td>
-                                    <button class="btn btn-primary btnAccion" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
+                                <td class="text-center">
+                                    <button class="btn text-light w-auto btnAccion" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
                                         <i class="fa fa-bars"></i>
                                     </button>
                                 </td>
@@ -83,11 +84,11 @@
                                 <td>Tío</td>
 
                                 <td>Indefinido</td>
-                                <td>
+                                <td class="text-center">
                                       <div class="btn-group dropstart ">
-                                    <button type="button" class="btn btn-primary btnAccion" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa fa-bars"></i>
-                                    </button>
+                                         <button class="btn text-light w-auto btnAccion" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
+                                            <i class="fa fa-bars"></i>
+                                        </button>
                                     <ul class="dropdown-menu" style="background-color:var(--bg-color);">
 
                                         <li><a class="dropdown-item itemlst" style="color:var(--fg-color) " @onclick='()=>{navigation.NavigateTo("/Familiares");}'>Familiares</a></li>

@@ -1,9 +1,7 @@
 ﻿@page "/ListPostulation"
 <PageTitle>Lista de postulantes</PageTitle>
-
-
-<div class="">
-    <div class="container-fluid mx-3 px-3 fade-in ">
+<div class="container">
+    <div class=" mx-3 px-3 fade-in ">
         <h3 class="text-center"> Lista de postulantes</h3>
         <div class="row">
             <div class="col ">
@@ -14,7 +12,7 @@
                             <th>Nombre</th>
                             <th>Curso</th>
                             <th>Estado</th>
-                            <th class="col-1">Accion</th>
+                            <th class="col-1 text-center">Accion</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,10 +23,18 @@
                             <td>
                                 <LabelsStatus tipo="1" txt="Aceptada"></LabelsStatus>
                             </td>
-                            <td>
-                                <button class="btn btn-primary btnAccion" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
-                                    <i class="fa fa-bars"></i>
-                                </button>
+                            <td class="text-center">
+                                <div class="btn-group dropleft">
+                                    <button class="btn text-light w-auto btnAccion dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                                        <i class="fa fa-bars"></i>
+                                    </button>
+
+                                    <ul class="dropdown-menu" style="background-color:var(--bg-color);">
+                                        <li><NavLink href="formpostulation/actualizar/2" class="dropdown-item itemlst" style="color:var(--fg-color)">Editar Datos Basicos</NavLink></li>
+                                        <li><NavLink class="dropdown-item itemlst" style="color:var(--fg-color)" @onclick='()=>{modalDatosAdicionales?.AbrirModal().GetAwaiter();}'> Editar Datos Adicionales</NavLink></li>
+                                        <li><NavLink href="Familiares" class="dropdown-item itemlst" style="color:var(--fg-color)">Familiares</NavLink></li>
+                                    </ul>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -38,10 +44,18 @@
                             <td>
                                 <LabelsStatus tipo="1" txt="Pendiente"></LabelsStatus>
                             </td>
-                            <td>
-                                <button class="btn btn-primary btnAccion" @onclick="()=>{modal.AbrirModal().GetAwaiter();}">
-                                    <i class="fa fa-bars"></i>
-                                </button>
+                            <td class="text-center">
+                                <div class="btn-group dropleft">
+                                    <button class="btn text-light w-auto btnAccion dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                                        <i class="fa fa-bars"></i>
+                                    </button>
+
+                                    <ul class="dropdown-menu" style="background-color:var(--bg-color);">
+                                        <li><NavLink href="formpostulation/actualizar/2" class="dropdown-item itemlst" style="color:var(--fg-color)">Editar Datos Basicos</NavLink></li>
+                                        <li><NavLink class="dropdown-item itemlst" style="color:var(--fg-color)" @onclick='()=>{modalDatosAdicionales?.AbrirModal().GetAwaiter();}'> Editar Datos Adicionales</NavLink></li>
+                                        <li><NavLink href="Familiares" class="dropdown-item itemlst" style="color:var(--fg-color)">Familiares</NavLink></li>
+                                    </ul>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -51,89 +65,75 @@
                             <td>
                                 <LabelsStatus tipo="1" txt="Pendiente"></LabelsStatus>
                             </td>
-                            <td>
-                                <div class="btn-group dropstart ">
-                                    <button type="button" class="btn btn-primary btnAccion" data-bs-toggle="dropdown" aria-expanded="false">
+                            <td class="text-center">
+                                <div class="btn-group dropleft">
+                                    <button class="btn text-light w-auto btnAccion dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                                         <i class="fa fa-bars"></i>
                                     </button>
+
                                     <ul class="dropdown-menu" style="background-color:var(--bg-color);">
-
-                                        <li><a class="dropdown-item itemlst" style="color:var(--fg-color) " @onclick='()=>{navigation.NavigateTo("/Familiares");}'>Familiares</a></li>
-
+                                        <li><NavLink href="formpostulation/actualizar/2" class="dropdown-item itemlst" style="color:var(--fg-color)">Editar Datos Basicos</NavLink></li>
+                                        <li><NavLink class="dropdown-item itemlst" style="color:var(--fg-color)" @onclick='()=>{modalDatosAdicionales?.AbrirModal().GetAwaiter();}'> Editar Datos Adicionales</NavLink></li>
+                                        <li><NavLink href="Familiares" class="dropdown-item itemlst" style="color:var(--fg-color)">Familiares</NavLink></li>
                                     </ul>
                                 </div>
                             </td>
                         </tr>
-
                     </tbody>
                 </table>
+                <Modal @ref="modalDatosAdicionales" id="listaFamiliar" sizeModal="SizeModal.large" titulo="Datos Adicionales">
+                    <DatosAdicionalesPostulante></DatosAdicionalesPostulante>
+                </Modal>
             </div>
         </div>
     </div>
 </div>
 
-
-<Modal @ref="modalMain" id="listaFamiliar" sizeModal="SizeModal.large" titulo="Familiares">
-   
-</Modal>
-<Modal @ref="modal" sizeModal="SizeModal.large">
-
-</Modal>
+<Modal @ref="modal" sizeModal="SizeModal.large"></Modal>
 @code {
 
-    Modal? modal;
-    Modal? modalMain;
+    Modal? modal = new();
+    Modal? modalDatosAdicionales = new();
     private ExampleDTO exampleModel = new();
     [Inject]
-    IDataTable dataTable { get; set; }
-    [Inject]
-    NavigationManager navigation { get; set; }
+    IDataTable? dataTable { get; set; }
 
     public void OnValidSubmit()
     {
     }
-
-    
-
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
         {
-      
             List<Columdef> columdef = new(){
-             new Columdef()
-             {
-                 responsivePriority = 1,
-                 targets = 0
-             },
-                new Columdef()
-             {
-                 responsivePriority = 1,
-                 targets = 1
-             },
-              new Columdef()
-             {
-                 responsivePriority = 10001,
-                 targets = 3
-             },
-              new Columdef()
-             {
-                 responsivePriority = 10001,
-                 targets = 2
-             }
-        }; 
- 
-        await dataTable.Init("#listPostulacion", columdef, true, false, false, false, false);
-
-
+                 new Columdef()
+                 {
+                     responsivePriority = 1,
+                     targets = 0
+                 },
+                    new Columdef()
+                 {
+                     responsivePriority = 1,
+                     targets = 1
+                 },
+                  new Columdef()
+                 {
+                     responsivePriority = 10001,
+                     targets = 3
+                 },
+                  new Columdef()
+                 {
+                     responsivePriority = 10001,
+                     targets = 2
+                 }
+            };
+            await dataTable.Init("#listPostulacion", columdef, true, false, false, false, false);
         }
-
     }
 
     public async Task Dispose()
     {
-
-       await  dataTable.Destroy("#listPostulacion");
+        await dataTable.Destroy("#listPostulacion");
     }
 
 }
