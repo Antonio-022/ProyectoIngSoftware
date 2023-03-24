@@ -10,7 +10,17 @@
                 </button>
             </div>
             <div class="modal-body" style="height:fit-content">
+                @if(@ChildContent == null){
+                      <div class="d-flex justify-content-center mt-3">
+                        <div class="spinner-border text-light text-center " role="status" style="width: 3rem !important;height: 3rem !important;">
+                            <span class="sr-only">Cargando...</span>
+                        </div>
+                    </div>
+                }
+                else{
                 @ChildContent
+                }
+               
             </div>
             @if(footerVisible)
             {

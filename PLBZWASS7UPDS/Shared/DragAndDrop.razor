@@ -1,0 +1,209 @@
+﻿@using Microsoft.AspNetCore.Components.Forms;
+@inject IMensajeToastr message
+@if (type)
+{
+    <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height: inherit;" class="contentShared">
+        <SpinnerGeneric ShowSpin="@ShowSpinner" @ref="spinnerGeneric"></SpinnerGeneric>
+        @if (ShowContent)
+        {
+            <div class="container-inputShared @DisplayPreviewBool" style="height:inherit;width:inherit;">
+                <InputFile @ref="@SharedInput" accept="@_AcceptFile" draggable="true" id="inputShared" title="" OnChange="getFile" />
+                <div class="title-inputshared @DisplayPreview ">
+                    @if (_Tipo != Dato.imagen)
+                    {
+                        <div class="d-flex justify-content-center  align-items-center">
+                            @if (_Tipo == Dato.documento)
+                            {
+                                <i class="bi bi-file-earmark-text-fill" style="font-size: 8rem;"></i>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <img src="@imgSrc" style="width:inherit; height:inherit;" />
+                    }
+                </div>
+                <div class="title-inputshared-default @Display @dashed">
+                    <p>
+                        Arrastre y suelte  @_Nombre Aquí
+                    </p>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary btn-sm " onclick="$('#inputShared').trigger( 'click' )">Seleccionar</button>
+            </div>
+        }
+    </div>
+}
+@if (!type)
+{
+    <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;height: inherit;" class="contentShared">
+        <SpinnerGeneric ShowSpin="@ShowSpinner" @ref="spinnerGeneric"></SpinnerGeneric>
+        @if (ShowContent)
+        {
+            <div class="container-inputShared @DisplayPreviewBool " style="height:inherit;width:inherit;">
+                <InputFile @ref="@SharedInput" accept="@_AcceptFile" draggable="true" id="inputShared2" style="border-radius:50%" title="" OnChange="getFile" />
+                <div class="title-inputshared @DisplayPreview ">
+                    @if (_Tipo != Dato.imagen)
+                    {
+                        <div class="d-flex justify-content-center  align-items-center">
+                            @if (_Tipo == Dato.documento)
+                            {
+                                <i class="bi bi-file-earmark-text-fill" style="font-size: 8rem;"></i>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="perfil-foto-post  opacity-100" style="background-image: url('@imgSrc');" alt="Foto"></div>
+                    }
+
+                </div>
+                <div class="title-inputshared-default text-black @DisplayCircle @dashedCircle p-3" style="font-size:15px;z-index:3;border-radius:50% ">
+                    <p>
+                        Arrastre y suelte  @_Nombre Aquí
+                    </p>
+
+                </div>
+                <div style="position:sticky;z-index:4; display: flex;justify-content: flex-end;height: inherit;align-items: end;">
+                    <button class="btn btn-primary rounded-circle edit-photo" type="button" style="width: fit-content;height: 42px;text-align: center;"
+                            onclick="$('#inputShared2').trigger( 'click' )">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    public bool ShowContent { get; set; } = true;
+    public bool ShowSpinner => ShowContent ? false : true;
+    private static string imgdefaul = "https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0=";
+    [Parameter]
+    public string imgSrc { get; set; } = null;
+    [Parameter]
+    public TipoDagAndDrop tipoDagAndDrop { get; set; }
+    private bool type => tipoDagAndDrop == TipoDagAndDrop.Box ? true : false;
+    private bool stateDisplay => imgSrc == null ? true : false;
+    private string? dashedCircle => imgSrc == imgdefaul ? "dashed" : null;
+    private string? DisplayCircle => dashedCircle == "dashed" ? "d-flex" : "d-none";
+    SpinnerGeneric? spinnerGeneric;
+    private string? dashed => stateDisplay ? "dashed" : null;
+    private string? DisplayPreview => stateDisplay ? "d-none" : "d-flex";
+    private string DisplayPreviewBool => stateDisplay ? "inactive" : "active";
+    private string? Display => stateDisplay && DisplayPreview == "d-none" ? "d-flex" : "d-none";
+    const string format = "image/jpeg";
+    ValidadordeArchivo validador = new ValidadordeArchivo();
+    [Parameter] public int MaxSize { get; set; }
+    InputFile? SharedInput;
+    [Parameter] public Accept AcceptFile { get; set; }
+    public Dato TipoDato;
+    private string _AcceptFile
+    {
+        get
+        {
+            switch (AcceptFile)
+            {
+                case Accept.imagenstatica:
+                    return (String.Join(", ", validador.Imagen));
+                case Accept.imagen:
+                    return (String.Join(", ", validador.Imagen));
+                case Accept.audio:
+                    return (String.Join(", ", validador.audio));
+                case Accept.video:
+                    return (String.Join(", ", validador.video));
+                case Accept.documento:
+                    return (String.Join(", ", validador.Documento));
+                case Accept.all:
+                    return "";
+                default:
+                    return "";
+            }
+        }
+
+    }
+    private Dato _Tipo
+    {
+        get
+        {
+            switch (AcceptFile)
+            {
+                case Accept.imagen:
+                    return Dato.gif;
+                case Accept.audio:
+                    return Dato.audio;
+                case Accept.video:
+                    return Dato.video;
+                case Accept.documento:
+                    return Dato.documento;
+                case Accept.imagenstatica:
+                    return Dato.imagen;
+                default:
+                    return Dato.otro;
+            }
+        }
+    }
+    private string _Nombre
+    {
+        get
+        {
+            switch (AcceptFile)
+            {
+                case Accept.imagen:
+                    return "la imagen";
+                case Accept.audio:
+                    return "el audio";
+                case Accept.video:
+                    return "el video";
+                case Accept.documento:
+                    return "el documento";
+                case Accept.imagenstatica:
+                    return "la imagen";
+                default:
+                    return "el archivo";
+            }
+        }
+    }
+
+    private async Task getFile(InputFileChangeEventArgs e)
+    {
+        ShowContent = false;
+        await File(e);
+        ShowContent = true;
+    }
+
+    public async Task File(InputFileChangeEventArgs e)
+    {
+
+        var KB = MaxSize * 1000;
+        var B = KB * 1000;
+        string[] strings = e.File.Name.Split(".");
+        int position = strings.Length;
+        string extension = "." + strings[position - 1];
+        validador.SearchTipo(extension);
+        var Tipo = validador.TipoDato;
+
+        if (e.File.Size <= B)
+        {
+            if (Tipo == _Tipo)
+            {
+                var stream = e.File.OpenReadStream(maxAllowedSize: e.File.Size);
+                var ms = new MemoryStream();
+                await stream.CopyToAsync(ms);
+                var buffer = ms.ToArray();
+                var imgb64 = Convert.ToBase64String(buffer);
+                imgSrc = $"data:{format};base64,{imgb64}";
+                this.StateHasChanged();
+            }
+            else
+            {
+                await message.MostrarMensajeError("el archivo es invalido");
+            }
+        }
+        else
+        {
+            await message.MostrarMensajeError("el archivo no debe superar los " + MaxSize + " MB");
+        }
+    }
+}

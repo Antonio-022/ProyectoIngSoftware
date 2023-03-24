@@ -10,22 +10,27 @@
     <Authorized>
         <div class="wrapper @classDark">
             <!-- Sidebar  -->
-            <nav  >
+            <nav>
                 <div id="sidebar" class="@sideBar">
                     <div class="pt-3">
                         <LoginDisplay />
                     </div>
-                    <MenuNav ></MenuNav>
-                    <div class="text-center footer-section">
+                    <MenuNav></MenuNav>
+                    <div class="text-center footer-section" style="padding: 10px;background: var(--bg-sidebar-color);}">
                         <div class="full-width">
                             <div class="btn-group" role="group" aria-label="Basic outlined example">
-
-                            <button type="button" class="btn btn-primary  rounded-circle mb-3" style="height: 42px;" @onclick="cambiarModo">
+                                @*<button type="button" class="btn btn-outline-primary btn-@modolight" @onclick="cambiarModolight">
+                                <i class="bi bi-brightness-high"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-primary btn-@themeBtn" @onclick="cambiarModoDark">
+                                <i class="bi bi-moon-fill"></i>
+                                </button>*@
+                                <button type="button" class="btn btn-primary  rounded-circle mb-3" style="height: 42px;" @onclick="cambiarModo">
                                     <i class="bi bi-@icon"></i>
                                 </button>
                             </div>
                         </div>
-                        <mat-divider></mat-divider>
+
                         @*<img src="https://portal.upds.edu.bo/index/images/isologo.png" class="isologo">*@
                         <div class="detail-version">
                             <p class="mb-0">&copy; 2022 - V1.3 DT</p>
@@ -41,13 +46,15 @@
 
             <!-- Page Content  -->
             <div id="content" class="@content">
-                <label type="button" for="check" class="label">
-                    <input type="checkbox" id="check" checked="@checkedV" @onclick="ToggleNavMenu" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-            <div class="container-fluid  @contenido  py-5 px-4" id="contenido"   @onclick="ToggleNavMenuContent">
+                <div style="height:fit-content + 20px">
+                    <label type="button" for="check" class="label">
+                        <input type="checkbox" id="check" checked="@checkedV" @onclick="ToggleNavMenu" />
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                </div>
+                <div class="container-fluid  @contenido mw-100 py-5 px-4" id="contenido" style="height:100vh" @onclick="ToggleNavMenuContent">
                     @Body
                 </div>
             </div>
