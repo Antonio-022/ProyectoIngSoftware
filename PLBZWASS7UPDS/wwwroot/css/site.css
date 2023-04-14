@@ -701,3 +701,7 @@ table.dataTable td {
 .none {
     display: none;
 }
+
+.dropleft .btnAccion {
+    color: var(--fg-color) !important;
+}
