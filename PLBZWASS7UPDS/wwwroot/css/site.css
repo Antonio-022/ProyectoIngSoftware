@@ -705,3 +705,6 @@ table.dataTable td {
 .dropleft .btnAccion {
     color: var(--fg-color) !important;
 }
+.content-table td{
+    vertical-align:middle !important;
+}

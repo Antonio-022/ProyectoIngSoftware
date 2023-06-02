@@ -8,6 +8,7 @@ namespace PLBZWASS7UPDS.Helpers
 {
     public class MostrarMensajes : IMostrarMensajes
     {
+        public bool modoDark = true;
         private readonly IJSRuntime js;
 
         public MostrarMensajes(IJSRuntime js)
@@ -17,23 +18,42 @@ namespace PLBZWASS7UPDS.Helpers
 
         public async Task MostrarMensajeError(string mensaje)
         {
-            await MostrarMensaje("Error", mensaje, "error");
+            await asignarThema();
+            await MostrarMensaje("Error", mensaje, "error", modoDark);
         }
 
         public async Task MostrarMensajeExitoso(string mensaje)
         {
-            await MostrarMensaje("Exitoso", mensaje, "success");
+            await asignarThema();
+            await MostrarMensaje("Exitoso", mensaje, "success", modoDark);
+
+
         }
 
-        private async ValueTask MostrarMensaje(string titulo, string mensaje, string tipoMensaje)
+        private async ValueTask MostrarMensaje(string titulo, string mensaje, string tipoMensaje, bool theme)
         {
-            await js.InvokeVoidAsync("Swal.fire", titulo, mensaje, tipoMensaje);
+            await js.InvokeVoidAsync("alerta", titulo, mensaje, tipoMensaje, theme);
         }
         public async Task<bool> Confirmacion(string titulo, string mensaje, string icono)
         {
-            var confirmacion = await js.InvokeAsync<bool>("confirmar", titulo, mensaje, icono);
+            await asignarThema();
+            var confirmacion = await js.InvokeAsync<bool>("confirmar", titulo, mensaje, icono, modoDark);
 
             return confirmacion;
+        }
+
+        [JSInvokable]
+        public async Task asignarThema()
+        {
+            var modo = await js.GetFromLocalStorage("theme");
+            if (modo == "dark")
+            {
+                modoDark = true;
+            }
+            else
+            {
+                modoDark = false;
+            }
         }
 
     }

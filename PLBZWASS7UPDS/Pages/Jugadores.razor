@@ -1,0 +1,337 @@
+﻿@page "/jugadores"
+<div class="container">
+    <div class="row">
+        <div class="titles text-center">
+            <h3>Gestion de Jugadores</h3>
+        </div>
+        <div class="container-jugador">
+            <div class="row text-end my-2">
+                <div class="col">
+                    <InputText class="form-control form-control" placeholder="busqueda Documento identidad/Apellido Paterno/Nombre" @oninput="(e)=>{searchJugador(e.Value);}" @bind-Value="Search"></InputText>
+                </div>
+                <div class="col">
+                    <div class="container-btn ">
+                        <button class="btn btn-success" @onclick="async ()=>{modelJugador = new(); await modalRef?.AbrirModal();}">Agregar</button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+
+                        <th>
+                            Documento de identidad
+                        </th>
+                        <th>
+                            Nombre Completo
+                        </th>
+                        <th>
+                            Edad
+                        </th>
+                        <th>
+                            Nacionalidad
+                        </th>
+                        <th>
+                            Equipo
+                        </th>
+                        <th>
+                            N° camiseta
+                        </th>
+                        <th>
+                            N° Posicion
+                        </th>
+                        <th>
+                            Acciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in jugadoresCopia)
+                    {
+                        <tr class="content-table">
+                            <td>
+                                @item.persona.documentoIdentidad
+                            </td>
+                            <td>
+                                @item.persona.nombre @item.persona.apellidoPaterno @item.persona.apellidoMaterno
+                            </td>
+                            <td>
+                                @item.persona.edad
+                            </td>
+                            <td>
+                                @item.persona.nacionalidad
+                            </td>
+                            <td>
+                                @item.equipo.nombre
+                            </td>
+                            <td>
+                                @item.numero_camiseta
+                            </td>
+                            <td>
+                                @item.posicion
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-5 ">
+                                        <NavLink class="btn btn-danger text-light"
+                                                 data-bs-toggle="tooltip" data-bs-placement="bottom" title="Conductas"
+                                                @onclick="async ()=>{await deleteJugador(item.persona.persona_id);}">
+                                            <i class="bi bi-trash" style="font-size:15px"></i>
+                                        </NavLink>
+                                    </div>
+                                    <div class="col-5">
+                                        <NavLink class="btn text-light"
+                                                 data-bs-toggle="tooltip" data-bs-placement="bottom" title="Conductas"
+                                                  @onclick="async ()=>{await getJugador(item.persona.persona_id);}"
+                                                 style="background: rgb(var(--bg-color-hover)); color: var(--fg-color) !important">
+                                            <i class="bi bi-pencil" style="font-size:15px"></i>
+                                        </NavLink>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<Modal bloquearCerrar="true" id="agregar" @ref="modalRef" titulo='@Titulo' sizeModal="SizeModal.large">
+    <EditForm OnValidSubmit="onValidSubmit" Model="modelJugador">
+        <div class="container-Modal">
+            <h5 class="fw-bold my-2">Personal</h5>
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <InputNumber autocomplete="off" class="form-control" @bind-Value="modelJugador.persona.documentoIdentidad" id="floatingInput" placeholder=" "></InputNumber>
+                        <label for="floatingInput">documentoIdentidad</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <InputText autocomplete="off" class="form-control" id="floatingInput" placeholder=" " @bind-Value="modelJugador.persona.nombre"></InputText>
+                        <label for="floatingInput">Nombre</label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <InputText autocomplete="off" class="form-control" id="floatingInput" placeholder=" " @bind-Value="modelJugador.persona.apellidoPaterno"></InputText>
+                        <label for="floatingInput">Apellido Paterno</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <InputText autocomplete="off" class="form-control" id="floatingInput" placeholder=" " @bind-Value="modelJugador.persona.apellidoMaterno"></InputText>
+                        <label for="floatingInput">Apellido Materno</label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <InputNumber autocomplete="off" class="form-control" id="floatingInput" placeholder=" " @bind-Value="modelJugador.persona.edad"></InputNumber>
+                        <label for="floatingInput">edad</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <InputText autocomplete="off" class="form-control" id="floatingInput" placeholder=" " @bind-Value="modelJugador.persona.nacionalidad"></InputText>
+                        <label for="floatingInput">Nacionalidad</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <InputNumber autocomplete="off" class="form-control" id="floatingInput" placeholder=" " @bind-Value="modelJugador.persona.telefono"></InputNumber>
+                        <label for="floatingInput">telefono</label>
+                    </div>
+                </div>
+            </div>
+            <h5 class="fw-bold my-2">Datos del Jugador</h5>
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <InputText autocomplete="off" class="form-control" id="floatingInput" placeholder=" " @bind-Value="modelJugador.habilidades"></InputText>
+                        <label for="floatingInput">Habilidades</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <InputText autocomplete="off" class="form-control" id="floatingInput" placeholder=" " @bind-Value="modelJugador.lesiones"></InputText>
+                        <label for="floatingInput">Lesiones</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <InputNumber autocomplete="off" class="form-control" id="floatingInput" placeholder=" " @bind-Value="modelJugador.numero_camiseta"></InputNumber>
+                        <label for="floatingInput">Numero Camiseta</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <InputNumber autocomplete="off" class="form-control" id="floatingInput" placeholder=" " @bind-Value="modelJugador.peso"></InputNumber>
+                        <label for="floatingInput">Peso</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <InputNumber autocomplete="off" class="form-control" id="floatingInput" placeholder=" " @bind-Value="modelJugador.posicion"></InputNumber>
+                        <label for="floatingInput">Posicion</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <InputSelect autocomplete="off" class="form-control" id="floatingInput" placeholder=" " @bind-Value="modelJugador.equipoId">
+                            @if (equipo is not null)
+                            {
+                                <option value=" ">Seleccionar</option>
+                                @foreach (var item in equipo)
+                                {
+                                    <option value="@item.equipo_id">@item.nombre</option>
+                                }
+                            }
+
+                        </InputSelect>
+                        <label for="floatingInput">Equipo</label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <InputNumber autocomplete="off" class="form-control" id="floatingInput" placeholder=" " @bind-Value="modelJugador.altura"></InputNumber>
+                        <label for="floatingInput">Altura</label>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-floating mb-3">
+                        <InputText autocomplete="off" class="form-control" id="floatingInput" placeholder=" " @bind-Value="modelJugador.estadisticas"></InputText>
+                        <label for="floatingInput">Estadisticas</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="btn-footer text-end">
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+    </EditForm>
+</Modal>
+@code {
+
+    Modal? modalRef;
+    [Inject] public IRepositorio http { get; set; }
+    List<PerosnaWithJugador> jugadores = new();
+    [Inject] public IMostrarMensajes mensajeModal { get; set; }
+    List<EquipoDTO> equipo = new();
+    public string Search { get; set; }
+    private personaADD modelJugador = new();
+    [Inject] public IMensajeToastr mensaje { get; set; }
+    bool Tipo = true;
+    string Titulo => Tipo ? "Agregar Jugador" : "Editar Jugador";
+    List<PerosnaWithJugador> jugadoresCopia = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await getJugadores();
+        await getEquipos();
+    }
+    protected async Task getJugadores()
+    {
+        var responseList = await http.Get<List<PerosnaWithJugador>>("https://localhost:7285/api/SISCampeonato/jugador");
+        jugadores = responseList.Response;
+        jugadoresCopia = jugadores;
+        Tipo = true;
+    }
+    protected void searchJugador(object e)
+    {
+        var vJugadores = jugadores.Where(z => z.persona.nombre.Contains(e.ToString(), StringComparison.CurrentCultureIgnoreCase)
+                                      || z.persona.apellidoPaterno.Contains(e.ToString(), StringComparison.CurrentCultureIgnoreCase)
+                                      || z.persona.documentoIdentidad.ToString().Contains(e.ToString(), StringComparison.CurrentCultureIgnoreCase)).ToList();
+        jugadoresCopia = vJugadores;
+        this.StateHasChanged();
+    }
+
+    protected async Task getEquipos()
+    {
+        var responseList = await http.Get<List<EquipoDTO>>("https://localhost:7285/api/SISCampeonato/equipo");
+        equipo = responseList.Response;
+    }
+    protected async Task deleteJugador(int idPersona)
+    {
+        var mensajealerta = await mensajeModal.Confirmacion("Eliminiacion","Estas Seguro de eliminar el registro?","info");
+        if (mensajealerta == true)
+        {
+            var responseADD = await http.Delete("   https://localhost:7285/api/SISCampeonato/jugador?id=" + idPersona);
+            if (responseADD.Error == false)
+            {
+                await mensaje.MostrarMensajeInfo("eliminado  con exito");
+                this.StateHasChanged();
+            }
+            else
+            {
+                await mensaje.MostrarMensajeError("error al eliminar");
+            }
+            await getJugadores();
+            this.StateHasChanged();
+        }
+    }
+
+    protected async Task getJugador(int idPersona)
+    {
+        var responseList = await http.Get<personaADD>("https://localhost:7285/api/SISCampeonato/jugador/"+idPersona);
+        modelJugador = responseList.Response;
+        await modalRef.AbrirModal();
+        Tipo = false;
+    }
+
+    public async Task onValidSubmit()
+    {
+        if(Tipo)
+        {
+            var responseADD = await http.Post<personaADD>("https://localhost:7285/api/SISCampeonato/jugador", modelJugador);
+            if (responseADD.Error == false)
+            {
+                await mensaje.MostrarMensajeExitoso("guardado con exito");
+                await modalRef.CerrarModal();
+                this.StateHasChanged();
+            }
+            else
+            {
+                await mensaje.MostrarMensajeError("error al guardar");
+            }
+            await getJugadores();
+            this.StateHasChanged();
+        }
+        else
+        {
+            var responseADD = await http.Put<personaADD>("https://localhost:7285/api/SISCampeonato/jugador", modelJugador);
+            if (responseADD.Error == false)
+            {
+                await mensaje.MostrarMensajeWarning("actualizacion con exito");
+                await modalRef.CerrarModal();
+                this.StateHasChanged();
+            }
+            else
+            {
+                await mensaje.MostrarMensajeError("error al actualizar");
+            }
+            await getJugadores();
+            modelJugador = new();
+            this.StateHasChanged();
+        }
+
+
+    }
+}
